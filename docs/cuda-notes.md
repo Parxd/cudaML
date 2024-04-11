@@ -38,4 +38,4 @@ int index = threadIdx.x + (blockIdx.x * M);
 - can lend itself to some problems
 - namely--if size of vector isn't exactly divisible by number of blocks (`blockDim.x`)?
 - need to use minimum number of blocks to fit all elements, but we need to ensure some threads in the last block don't write to segfault locations (imagine graphic above but with last couple of threads in the 4th block being empty)
-- can do this by passing size of vector to kernel and ensuring that the calculated thread index is always lower than the size before doing any writing to the output vector (see `kernel_4` in `vec_add.cu`)
+- can do this by passing size of vector to kernel and ensuring that calculated thread index is always lower than size before doing any writing to output vector (see `kernel_4` in `vec_add.cu`)
