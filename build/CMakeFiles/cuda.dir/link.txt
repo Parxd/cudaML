@@ -1,0 +1,1 @@
+/usr/lib/nvidia-cuda-toolkit/bin/g++ CMakeFiles/cuda.dir/src/math/vec_add.cu.o -o cuda  -lcudnn -lcudadevrt -lcudart_static -lrt -lpthread -ldl  -L"/usr/lib/x86_64-linux-gnu/stubs" -L"/usr/lib/x86_64-linux-gnu"
