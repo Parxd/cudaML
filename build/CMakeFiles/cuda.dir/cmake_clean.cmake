@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/cuda.dir/src/math/vec_add.cu.o"
-  "CMakeFiles/cuda.dir/src/math/vec_add.cu.o.d"
+  "CMakeFiles/cuda.dir/tests/math/test_vec_add.cu.o"
+  "CMakeFiles/cuda.dir/tests/math/test_vec_add.cu.o.d"
   "cuda"
   "cuda.pdb"
 )

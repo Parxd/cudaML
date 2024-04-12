@@ -69,28 +69,28 @@ include CMakeFiles/cuda.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/cuda.dir/flags.make
 
-CMakeFiles/cuda.dir/src/math/vec_add.cu.o: CMakeFiles/cuda.dir/flags.make
-CMakeFiles/cuda.dir/src/math/vec_add.cu.o: ../src/math/vec_add.cu
-CMakeFiles/cuda.dir/src/math/vec_add.cu.o: CMakeFiles/cuda.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/parxed/code/projects/cudaML/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CUDA object CMakeFiles/cuda.dir/src/math/vec_add.cu.o"
-	/usr/bin/nvcc -forward-unknown-to-host-compiler $(CUDA_DEFINES) $(CUDA_INCLUDES) $(CUDA_FLAGS) -MD -MT CMakeFiles/cuda.dir/src/math/vec_add.cu.o -MF CMakeFiles/cuda.dir/src/math/vec_add.cu.o.d -x cu -c /home/parxed/code/projects/cudaML/src/math/vec_add.cu -o CMakeFiles/cuda.dir/src/math/vec_add.cu.o
+CMakeFiles/cuda.dir/tests/math/test_vec_add.cu.o: CMakeFiles/cuda.dir/flags.make
+CMakeFiles/cuda.dir/tests/math/test_vec_add.cu.o: ../tests/math/test_vec_add.cu
+CMakeFiles/cuda.dir/tests/math/test_vec_add.cu.o: CMakeFiles/cuda.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/parxed/code/projects/cudaML/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CUDA object CMakeFiles/cuda.dir/tests/math/test_vec_add.cu.o"
+	/usr/bin/nvcc -forward-unknown-to-host-compiler $(CUDA_DEFINES) $(CUDA_INCLUDES) $(CUDA_FLAGS) -MD -MT CMakeFiles/cuda.dir/tests/math/test_vec_add.cu.o -MF CMakeFiles/cuda.dir/tests/math/test_vec_add.cu.o.d -x cu -c /home/parxed/code/projects/cudaML/tests/math/test_vec_add.cu -o CMakeFiles/cuda.dir/tests/math/test_vec_add.cu.o
 
-CMakeFiles/cuda.dir/src/math/vec_add.cu.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CUDA source to CMakeFiles/cuda.dir/src/math/vec_add.cu.i"
+CMakeFiles/cuda.dir/tests/math/test_vec_add.cu.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CUDA source to CMakeFiles/cuda.dir/tests/math/test_vec_add.cu.i"
 	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_CUDA_CREATE_PREPROCESSED_SOURCE
 
-CMakeFiles/cuda.dir/src/math/vec_add.cu.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CUDA source to assembly CMakeFiles/cuda.dir/src/math/vec_add.cu.s"
+CMakeFiles/cuda.dir/tests/math/test_vec_add.cu.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CUDA source to assembly CMakeFiles/cuda.dir/tests/math/test_vec_add.cu.s"
 	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_CUDA_CREATE_ASSEMBLY_SOURCE
 
 # Object files for target cuda
 cuda_OBJECTS = \
-"CMakeFiles/cuda.dir/src/math/vec_add.cu.o"
+"CMakeFiles/cuda.dir/tests/math/test_vec_add.cu.o"
 
 # External object files for target cuda
 cuda_EXTERNAL_OBJECTS =
 
-cuda: CMakeFiles/cuda.dir/src/math/vec_add.cu.o
+cuda: CMakeFiles/cuda.dir/tests/math/test_vec_add.cu.o
 cuda: CMakeFiles/cuda.dir/build.make
 cuda: CMakeFiles/cuda.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/parxed/code/projects/cudaML/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CUDA executable cuda"

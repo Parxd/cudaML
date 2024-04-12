@@ -1,7 +1,12 @@
 [
 {
   "directory": "/home/parxed/code/projects/cudaML/build",
-  "command": "/usr/bin/nvcc -forward-unknown-to-host-compiler  -I/home/parxed/code/projects/cudaML/include -g --generate-code=arch=compute_75,code=[compute_75,sm_75] -std=c++11 -x cu -c /home/parxed/code/projects/cudaML/src/math/vec_add.cu -o CMakeFiles/cuda.dir/src/math/vec_add.cu.o",
-  "file": "/home/parxed/code/projects/cudaML/src/math/vec_add.cu"
+  "command": "/usr/bin/nvcc -forward-unknown-to-host-compiler   -g --generate-code=arch=compute_75,code=[compute_75,sm_75] -std=c++11 -x cu -c /home/parxed/code/projects/cudaML/tests/math/test_vec_add.cu -o CMakeFiles/test_vec_add.dir/tests/math/test_vec_add.cu.o",
+  "file": "/home/parxed/code/projects/cudaML/tests/math/test_vec_add.cu"
+},
+{
+  "directory": "/home/parxed/code/projects/cudaML/build",
+  "command": "/usr/bin/nvcc -forward-unknown-to-host-compiler   -g --generate-code=arch=compute_75,code=[compute_75,sm_75] -std=c++11 -x cu -c /home/parxed/code/projects/cudaML/tests/math/test_mat_add.cu -o CMakeFiles/test_mat_add.dir/tests/math/test_mat_add.cu.o",
+  "file": "/home/parxed/code/projects/cudaML/tests/math/test_mat_add.cu"
 }
 ]

@@ -14,11 +14,10 @@ set(CMAKE_CUDA_STANDARD 11)
 set(CMAKE_CUDA_STANDARD_REQUIRED TRUE)
 set(CMAKE_COMPILE_WARNING_AS_ERROR ON)
 
-set(SOURCES
+set(MAIN_SOURCES
     src/math/vec_add.cu
+    src/math/mat_add.cu
     )
 
-add_executable(cuda ${SOURCES})
-
-target_include_directories(cuda PRIVATE ${PROJECT_SOURCE_DIR}/include)
-target_link_libraries(cuda cudnn)
+add_executable(test_vec_add tests/math/test_vec_add.cu)
+add_executable(test_mat_add tests/math/test_mat_add.cu)

@@ -10,7 +10,7 @@ Notes from <https://www.olcf.ornl.gov/cuda-training-series/>
   - `parameter1` refers to how many "workers" we deploy (otherwise known as blocks)
   - `parameter2` refers to how many threads we deploy in each worker/block
 
-### Vector addition (see `src/vec_add.cu`)
+### Vector addition (see `src/math/vec_add.cu`)
 
 simplest kernels:
 
@@ -39,3 +39,26 @@ int index = threadIdx.x + (blockIdx.x * M);
 - namely--if size of vector isn't exactly divisible by number of blocks (`blockDim.x`)?
 - need to use minimum number of blocks to fit all elements, but we need to ensure some threads in the last block don't write to segfault locations (imagine graphic above but with last couple of threads in the 4th block being empty)
 - can do this by passing size of vector to kernel and ensuring that calculated thread index is always lower than size before doing any writing to output vector (see `kernel_4` in `vec_add.cu`)
+- in kernel launch, use integer division to find minimum number of blocks
+  - for ex. if `N` = 18 & `threads` = 4, (`N` + `threads` - 1) / `threads` = 5
+  - launches 5 blocks with 4 threads each, which is correct minimum value
+
+---
+
+### matrix addition (see `src/math/mat_add.cu`)
+
+- not fundamentally different from vector addition
+- we can still use vector addiction, since this is also an elementwise operation
+- *don't* represent matrices as actual 2D arrays
+  - we want guaranteed contiguous memory
+  - use flattened array to represent memory in host
+  - but then use actual 2D blocks/grids in device
+- use the following formula to calculate index in 2D block
+
+```c
+int idx = threadIdx.x * blockDim.x + threadIdx.y
+```
+
+- `blockDim.x` (or `N` in the code) is also equal to the number of rows in matrix
+- this is our row stride--how many elements to skip in  contiguous representation to get to the next row
+- we multiply the threadIdx.x by this element to skip to the next row that we want

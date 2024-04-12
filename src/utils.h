@@ -1,9 +1,21 @@
 #include <iostream>
-#include <cudnn.h>
-
 
 #define CEIL_DIV(M, N) (((M) + (N)-1) / (N))
 
+void fill_ones(float* arr, int N) {
+    for (int i = 0; i < N; ++i) {
+        arr[i] = 1.0;
+    }
+}
+
+void print_matrix(float* arr, int rows, int cols, int precision = 3) {
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            printf("%.3f ", *(arr + i * rows + j));
+        }
+        printf("\n");
+    }
+}
 
 #define CUDA_CHECK(err)                                                                            \
     do {                                                                                           \

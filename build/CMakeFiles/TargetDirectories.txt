@@ -1,3 +1,4 @@
-/home/parxed/code/projects/cudaML/build/CMakeFiles/cuda.dir
+/home/parxed/code/projects/cudaML/build/CMakeFiles/test_vec_add.dir
+/home/parxed/code/projects/cudaML/build/CMakeFiles/test_mat_add.dir
 /home/parxed/code/projects/cudaML/build/CMakeFiles/edit_cache.dir
 /home/parxed/code/projects/cudaML/build/CMakeFiles/rebuild_cache.dir

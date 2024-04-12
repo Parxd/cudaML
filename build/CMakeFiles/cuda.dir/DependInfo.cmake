@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/parxed/code/projects/cudaML/src/math/vec_add.cu" "CMakeFiles/cuda.dir/src/math/vec_add.cu.o" "gcc" "CMakeFiles/cuda.dir/src/math/vec_add.cu.o.d"
+  "/home/parxed/code/projects/cudaML/tests/math/test_vec_add.cu" "CMakeFiles/cuda.dir/tests/math/test_vec_add.cu.o" "gcc" "CMakeFiles/cuda.dir/tests/math/test_vec_add.cu.o.d"
   )
 
 # Targets to which this target links.
