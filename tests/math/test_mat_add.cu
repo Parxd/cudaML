@@ -1,4 +1,5 @@
 #include "../../src/utils.h"
+#include "../../src/math/vec_add.cu"
 #include "../../src/math/mat_add.cu"
 
 
@@ -25,10 +26,14 @@ int main(int argc, char** argv) {
     cudaMemcpy(d_a, a, byte_size, cudaMemcpyHostToDevice);
     cudaMemcpy(d_b, b, byte_size, cudaMemcpyHostToDevice);
 
+    // with 1D block:
+    // vecadd_2<<<1, N * M>>>(d_a, d_b, d_c);
+
+    // with 2D block:
     // need 1 block of shape 2 x 3
     dim3 gridDim(1, 1, 1);
     dim3 blockDim(N, M, 1);
-    matadd_1<<<gridDim, blockDim>>>(d_a, d_b, d_c, N, M);
+    matadd_2<<<gridDim, blockDim>>>(d_a, d_b, d_c, N, M);
 
     cudaMemcpy(c, d_c, byte_size, cudaMemcpyDeviceToHost);
 
