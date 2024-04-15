@@ -1,6 +1,6 @@
 # CUDA Programming
 
-Notes from <https://www.olcf.ornl.gov/cuda-training-series/>
+Notes from <https://www.olcf.ornl.gov/cuda-training-series/>, <https://siboehm.com/articles/22/CUDA-MMM>
 
 ## Basics
 
@@ -9,6 +9,7 @@ Notes from <https://www.olcf.ornl.gov/cuda-training-series/>
 - launch kernels with `kernel_name<<<parameter1, parameter2>>>`
   - `parameter1` refers to how many "workers" we deploy (otherwise known as blocks)
   - `parameter2` refers to how many threads we deploy in each worker/block
+![alt text](CUDA_thread_hierarchy.png)
 
 ### Vector addition (see `src/math/vec_add.cu`)
 
@@ -55,7 +56,7 @@ int index = threadIdx.x + (blockIdx.x * M);
   - but then use actual 2D blocks/grids in device
 - use the following formula to calculate index in 2D block
 
-```c
+```cpp
 int idx = threadIdx.x * blockDim.x + threadIdx.y
 ```
 

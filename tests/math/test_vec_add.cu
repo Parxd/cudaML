@@ -1,18 +1,15 @@
 #include "../../src/utils.h"
 #include "../../src/math/vec_add.cu"
 
-static int N = 18;
-static int THREADS_PER_BLOCK = 4;
-
-
 int main(int argc, char** argv) {
+    int N = 18;
+    int THREADS_PER_BLOCK = 4;
     int byte_size = N * sizeof(float);
 
     float *a, *b, *c;
     a = (float*)malloc(byte_size);
     b = (float*)malloc(byte_size);
     c = (float*)malloc(byte_size);
-    
     fill_ones(a, N);
     fill_ones(b, N);
 

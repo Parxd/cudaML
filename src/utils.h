@@ -1,6 +1,7 @@
-#include <iostream>
+#include <cstdio>
 
-#define CEIL_DIV(M, N) (((M) + (N)-1) / (N))
+#define MAX_THREADS 32
+#define CEIL_DIV(N, M) (((N) + (M)-1) / (M))
 
 void fill_ones(float* arr, int N) {
     for (int i = 0; i < N; ++i) {
@@ -11,7 +12,7 @@ void fill_ones(float* arr, int N) {
 void print_matrix(float* arr, int rows, int cols, int precision = 3) {
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
-            printf("%.3f ", *(arr + i * rows + j));
+            printf("%.*f ", precision, *(arr + i * rows + j));
         }
         printf("\n");
     }
