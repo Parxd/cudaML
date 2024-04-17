@@ -9,7 +9,7 @@ Notes from <https://www.olcf.ornl.gov/cuda-training-series/>, <https://siboehm.c
 - launch kernels with `kernel_name<<<parameter1, parameter2>>>`
   - `parameter1` refers to how many "workers" we deploy (otherwise known as blocks)
   - `parameter2` refers to how many threads we deploy in each worker/block
-![alt text](CUDA_thread_hierarchy.png)
+![alt text](imgs/CUDA_thread_hierarchy.png)
 
 ### Vector addition (see `src/math/vec_add.cu`)
 
@@ -34,7 +34,7 @@ int index = threadIdx.x + (blockIdx.x * M);
 - `kernel_3<<<N / THREADS_PER_BLOCK, THREADS_PER_BLOCK>>>` will...
   - divide work into variable number of blocks (depending on how many threads per block we specify)
 
-![alt text](thread_block.png)
+![alt text](imgs/thread_block.png)
 
 - can lend itself to some problems
 - namely--if size of vector isn't exactly divisible by number of blocks (`blockDim.x`)?
@@ -63,3 +63,5 @@ int idx = threadIdx.x * blockDim.x + threadIdx.y
 - `blockDim.x` (or `N` in the code) is also equal to the number of rows in matrix
 - this is our row stride--how many elements to skip in  contiguous representation to get to the next row
 - we multiply the threadIdx.x by this element to skip to the next row that we want
+
+![alt text](imgs/mat_add.png)

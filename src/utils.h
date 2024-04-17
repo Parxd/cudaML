@@ -9,12 +9,20 @@ void fill_ones(float* arr, int N) {
     }
 }
 
+void fill_increment(float* arr, int N) {
+    int num = 1;
+    for (int i = 0; i < N; ++i) {
+        arr[i] = num;
+        ++num;
+    }
+}
+
 void print_matrix(float* arr, int rows, int cols, int precision = 3) {
-    for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < cols; j++) {
-            printf("%.*f ", precision, *(arr + i * rows + j));
+    for (int i = 0; i < rows * cols; i++) {
+        printf("%.*f ", precision, *(arr + i));
+        if ((i + 1) % cols == 0) {
+            printf("\n");
         }
-        printf("\n");
     }
 }
 

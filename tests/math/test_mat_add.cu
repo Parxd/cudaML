@@ -11,8 +11,8 @@ void test1() {
     b = (float*)malloc(byte_size);
     c = (float*)malloc(byte_size);
     
-    fill_ones(a, N * M);
-    fill_ones(b, N * M);
+    fill_increment(a, N * M);
+    fill_increment(b, N * M);
 
     float *d_a, *d_b, *d_c;
     cudaMalloc((void**)&d_a, byte_size);
@@ -44,16 +44,17 @@ void test1() {
 }
 
 void test2() {
-    int N = 41;
-    int M = 37;
+    // tile quantization
+    int N = 35;
+    int M = 33;
     int byte_size = N * M * sizeof(float);
 
     float *a, *b, *c;
     a = (float*)malloc(byte_size);
     b = (float*)malloc(byte_size);
     c = (float*)malloc(byte_size);
-    fill_ones(a, N);
-    fill_ones(b, N);
+    fill_ones(a, N * M);
+    fill_ones(b, N * M);
 
     float *d_a, *d_b, *d_c;
     cudaMalloc((void**)&d_a, byte_size);
@@ -63,9 +64,20 @@ void test2() {
     cudaMemcpy(d_a, a, byte_size, cudaMemcpyHostToDevice);
     cudaMemcpy(d_b, b, byte_size, cudaMemcpyHostToDevice);
 
-    dim3 gridDim(CEIL_DIV(N, MAX_THREADS), CEIL_DIV(M, MAX_THREADS));
+    dim3 gridDim(CEIL_DIV(N, MAX_THREADS), CEIL_DIV(M, MAX_THREADS), 1);
     dim3 blockDim(MAX_THREADS, MAX_THREADS, 1);
     matadd_2<<<gridDim, blockDim>>>(d_a, d_b, d_c);
+
+    cudaMemcpy(c, d_c, byte_size, cudaMemcpyDeviceToHost);
+
+    print_matrix(c, N, M);
+
+    cudaFree(d_a);
+    cudaFree(d_b);
+    cudaFree(d_c);
+    free(a);
+    free(b);
+    free(c);
 }
 
 int main(int argc, char** argv) {
