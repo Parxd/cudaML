@@ -5,7 +5,6 @@
 #include <iomanip>
 
 #define MAX_THREADS 32
-#define IDX2C(i, j, ld) (((j)*(ld))+(i))
 #define CEIL_DIV(N, M) (((N) + (M)-1) / (M))
 const float ALPHA = 1.0;
 const float BETA = 0.0;
@@ -25,21 +24,20 @@ void fill_increment(T* arr, int N) {
     }
 }
 
-template <typename T> void print_matrix(const int &m, const int &n, const T *A, const int &lda);
-
-template <> void print_matrix(const int &m, const int &n, const float *A, const int &lda) {
+// STRIDE--number of elements to skip to get to next row (number of columns in row-major)
+template <typename T> void print_matrix(const int &m, const int &n, const T *A, const int &stride);
+template <> void print_matrix(const int &m, const int &n, const float *A, const int &stride) {
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < n; j++) {
-            std::printf("%0.2f ", A[j * lda + i]);
+            std::printf("%0.3f\t", A[i * stride + j]);
         }
         std::printf("\n");
     }
 }
-
-template <> void print_matrix(const int &m, const int &n, const double *A, const int &lda) {
+template <> void print_matrix(const int &m, const int &n, const double *A, const int &stride) {
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < n; j++) {
-            std::printf("%0.2f ", A[j * lda + i]);
+            std::printf("%0.3f\t", A[i * stride + j]);
         }
         std::printf("\n");
     }
