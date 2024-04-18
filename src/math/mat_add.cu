@@ -1,4 +1,3 @@
-#include <cstdio>
 #include <cuda_runtime.h>
 
 // as pointed in docs, matrix addition really doesn't need 2D blocks

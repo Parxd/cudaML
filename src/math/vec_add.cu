@@ -1,5 +1,3 @@
-#include <cstdio>
-#include <cstdlib>
 #include <cuda_runtime.h>
 
 // N blocks, each with 1 thread

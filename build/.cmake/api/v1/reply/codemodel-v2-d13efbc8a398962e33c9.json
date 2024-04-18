@@ -16,7 +16,9 @@
 					"targetIndexes" : 
 					[
 						0,
-						1
+						1,
+						2,
+						3
 					]
 				}
 			],
@@ -32,7 +34,9 @@
 					"targetIndexes" : 
 					[
 						0,
-						1
+						1,
+						2,
+						3
 					]
 				}
 			],
@@ -40,15 +44,29 @@
 			[
 				{
 					"directoryIndex" : 0,
+					"id" : "main::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-main-Debug-da36a40ed7ec408ad199.json",
+					"name" : "main",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
 					"id" : "test_mat_add::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-test_mat_add-Debug-b73cff807fa6488c99b7.json",
+					"jsonFile" : "target-test_mat_add-Debug-01c72adf3927d06cbcd2.json",
 					"name" : "test_mat_add",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
+					"id" : "test_mat_mul::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_mat_mul-Debug-d16b60461c04a9999acf.json",
+					"name" : "test_mat_mul",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
 					"id" : "test_vec_add::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-test_vec_add-Debug-3f56197d6151d287d5f8.json",
+					"jsonFile" : "target-test_vec_add-Debug-aff13db69c60759c1716.json",
 					"name" : "test_vec_add",
 					"projectIndex" : 0
 				}

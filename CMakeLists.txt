@@ -17,7 +17,19 @@ set(CMAKE_COMPILE_WARNING_AS_ERROR ON)
 set(MAIN_SOURCES
     src/math/vec_add.cu
     src/math/mat_add.cu
+    src/math/mat_mul.cu
     )
 
-add_executable(test_vec_add tests/math/test_vec_add.cu)
-add_executable(test_mat_add tests/math/test_mat_add.cu)
+set(TEST_SOURCES
+    tests/math/test_vec_add.cu
+    tests/math/test_mat_add.cu
+    tests/math/test_mat_mul.cu
+    )
+
+add_executable(main ${MAIN_SOURCES})
+
+foreach(TEST_SOURCE ${TEST_SOURCES})
+  get_filename_component(TEST_NAME ${TEST_SOURCE} NAME_WE)
+  add_executable(${TEST_NAME} ${TEST_SOURCE})
+  target_link_libraries(${TEST_NAME} cublas)
+endforeach()

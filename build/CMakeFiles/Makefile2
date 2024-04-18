@@ -63,8 +63,10 @@ CMAKE_BINARY_DIR = /home/parxed/code/projects/cudaML/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
+all: CMakeFiles/main.dir/all
 all: CMakeFiles/test_vec_add.dir/all
 all: CMakeFiles/test_mat_add.dir/all
+all: CMakeFiles/test_mat_mul.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -72,9 +74,37 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
+clean: CMakeFiles/main.dir/clean
 clean: CMakeFiles/test_vec_add.dir/clean
 clean: CMakeFiles/test_mat_add.dir/clean
+clean: CMakeFiles/test_mat_mul.dir/clean
 .PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/main.dir
+
+# All Build rule for target.
+CMakeFiles/main.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/parxed/code/projects/cudaML/build/CMakeFiles --progress-num=1,2,3,4 "Built target main"
+.PHONY : CMakeFiles/main.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/main.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/parxed/code/projects/cudaML/build/CMakeFiles 4
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/main.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/parxed/code/projects/cudaML/build/CMakeFiles 0
+.PHONY : CMakeFiles/main.dir/rule
+
+# Convenience name for target.
+main: CMakeFiles/main.dir/rule
+.PHONY : main
+
+# clean rule for target.
+CMakeFiles/main.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/clean
+.PHONY : CMakeFiles/main.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/test_vec_add.dir
@@ -83,7 +113,7 @@ clean: CMakeFiles/test_mat_add.dir/clean
 CMakeFiles/test_vec_add.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_vec_add.dir/build.make CMakeFiles/test_vec_add.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_vec_add.dir/build.make CMakeFiles/test_vec_add.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/parxed/code/projects/cudaML/build/CMakeFiles --progress-num=3,4 "Built target test_vec_add"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/parxed/code/projects/cudaML/build/CMakeFiles --progress-num=9,10 "Built target test_vec_add"
 .PHONY : CMakeFiles/test_vec_add.dir/all
 
 # Build rule for subdir invocation for target.
@@ -109,7 +139,7 @@ CMakeFiles/test_vec_add.dir/clean:
 CMakeFiles/test_mat_add.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_mat_add.dir/build.make CMakeFiles/test_mat_add.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_mat_add.dir/build.make CMakeFiles/test_mat_add.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/parxed/code/projects/cudaML/build/CMakeFiles --progress-num=1,2 "Built target test_mat_add"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/parxed/code/projects/cudaML/build/CMakeFiles --progress-num=5,6 "Built target test_mat_add"
 .PHONY : CMakeFiles/test_mat_add.dir/all
 
 # Build rule for subdir invocation for target.
@@ -127,6 +157,32 @@ test_mat_add: CMakeFiles/test_mat_add.dir/rule
 CMakeFiles/test_mat_add.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_mat_add.dir/build.make CMakeFiles/test_mat_add.dir/clean
 .PHONY : CMakeFiles/test_mat_add.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/test_mat_mul.dir
+
+# All Build rule for target.
+CMakeFiles/test_mat_mul.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_mat_mul.dir/build.make CMakeFiles/test_mat_mul.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_mat_mul.dir/build.make CMakeFiles/test_mat_mul.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/parxed/code/projects/cudaML/build/CMakeFiles --progress-num=7,8 "Built target test_mat_mul"
+.PHONY : CMakeFiles/test_mat_mul.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/test_mat_mul.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/parxed/code/projects/cudaML/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_mat_mul.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/parxed/code/projects/cudaML/build/CMakeFiles 0
+.PHONY : CMakeFiles/test_mat_mul.dir/rule
+
+# Convenience name for target.
+test_mat_mul: CMakeFiles/test_mat_mul.dir/rule
+.PHONY : test_mat_mul
+
+# clean rule for target.
+CMakeFiles/test_mat_mul.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_mat_mul.dir/build.make CMakeFiles/test_mat_mul.dir/clean
+.PHONY : CMakeFiles/test_mat_mul.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

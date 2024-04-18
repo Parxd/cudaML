@@ -5,7 +5,7 @@ void test1() {
     int N = 2;
     int M = 3;
     int byte_size = N * M * sizeof(float);
-
+    
     float *a, *b, *c;
     a = (float*)malloc(byte_size);
     b = (float*)malloc(byte_size);

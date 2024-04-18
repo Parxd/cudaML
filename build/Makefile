@@ -117,6 +117,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named main
+
+# Build rule for target.
+main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 main
+.PHONY : main
+
+# fast build rule for target.
+main/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
+.PHONY : main/fast
+
+#=============================================================================
 # Target rules for targets named test_vec_add
 
 # Build rule for target.
@@ -142,6 +155,91 @@ test_mat_add/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_mat_add.dir/build.make CMakeFiles/test_mat_add.dir/build
 .PHONY : test_mat_add/fast
 
+#=============================================================================
+# Target rules for targets named test_mat_mul
+
+# Build rule for target.
+test_mat_mul: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_mat_mul
+.PHONY : test_mat_mul
+
+# fast build rule for target.
+test_mat_mul/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_mat_mul.dir/build.make CMakeFiles/test_mat_mul.dir/build
+.PHONY : test_mat_mul/fast
+
+src/math/mat_add.o: src/math/mat_add.cu.o
+.PHONY : src/math/mat_add.o
+
+# target to build an object file
+src/math/mat_add.cu.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/math/mat_add.cu.o
+.PHONY : src/math/mat_add.cu.o
+
+src/math/mat_add.i: src/math/mat_add.cu.i
+.PHONY : src/math/mat_add.i
+
+# target to preprocess a source file
+src/math/mat_add.cu.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/math/mat_add.cu.i
+.PHONY : src/math/mat_add.cu.i
+
+src/math/mat_add.s: src/math/mat_add.cu.s
+.PHONY : src/math/mat_add.s
+
+# target to generate assembly for a file
+src/math/mat_add.cu.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/math/mat_add.cu.s
+.PHONY : src/math/mat_add.cu.s
+
+src/math/mat_mul.o: src/math/mat_mul.cu.o
+.PHONY : src/math/mat_mul.o
+
+# target to build an object file
+src/math/mat_mul.cu.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/math/mat_mul.cu.o
+.PHONY : src/math/mat_mul.cu.o
+
+src/math/mat_mul.i: src/math/mat_mul.cu.i
+.PHONY : src/math/mat_mul.i
+
+# target to preprocess a source file
+src/math/mat_mul.cu.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/math/mat_mul.cu.i
+.PHONY : src/math/mat_mul.cu.i
+
+src/math/mat_mul.s: src/math/mat_mul.cu.s
+.PHONY : src/math/mat_mul.s
+
+# target to generate assembly for a file
+src/math/mat_mul.cu.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/math/mat_mul.cu.s
+.PHONY : src/math/mat_mul.cu.s
+
+src/math/vec_add.o: src/math/vec_add.cu.o
+.PHONY : src/math/vec_add.o
+
+# target to build an object file
+src/math/vec_add.cu.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/math/vec_add.cu.o
+.PHONY : src/math/vec_add.cu.o
+
+src/math/vec_add.i: src/math/vec_add.cu.i
+.PHONY : src/math/vec_add.i
+
+# target to preprocess a source file
+src/math/vec_add.cu.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/math/vec_add.cu.i
+.PHONY : src/math/vec_add.cu.i
+
+src/math/vec_add.s: src/math/vec_add.cu.s
+.PHONY : src/math/vec_add.s
+
+# target to generate assembly for a file
+src/math/vec_add.cu.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/math/vec_add.cu.s
+.PHONY : src/math/vec_add.cu.s
+
 tests/math/test_mat_add.o: tests/math/test_mat_add.cu.o
 .PHONY : tests/math/test_mat_add.o
 
@@ -165,6 +263,30 @@ tests/math/test_mat_add.s: tests/math/test_mat_add.cu.s
 tests/math/test_mat_add.cu.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_mat_add.dir/build.make CMakeFiles/test_mat_add.dir/tests/math/test_mat_add.cu.s
 .PHONY : tests/math/test_mat_add.cu.s
+
+tests/math/test_mat_mul.o: tests/math/test_mat_mul.cu.o
+.PHONY : tests/math/test_mat_mul.o
+
+# target to build an object file
+tests/math/test_mat_mul.cu.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_mat_mul.dir/build.make CMakeFiles/test_mat_mul.dir/tests/math/test_mat_mul.cu.o
+.PHONY : tests/math/test_mat_mul.cu.o
+
+tests/math/test_mat_mul.i: tests/math/test_mat_mul.cu.i
+.PHONY : tests/math/test_mat_mul.i
+
+# target to preprocess a source file
+tests/math/test_mat_mul.cu.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_mat_mul.dir/build.make CMakeFiles/test_mat_mul.dir/tests/math/test_mat_mul.cu.i
+.PHONY : tests/math/test_mat_mul.cu.i
+
+tests/math/test_mat_mul.s: tests/math/test_mat_mul.cu.s
+.PHONY : tests/math/test_mat_mul.s
+
+# target to generate assembly for a file
+tests/math/test_mat_mul.cu.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_mat_mul.dir/build.make CMakeFiles/test_mat_mul.dir/tests/math/test_mat_mul.cu.s
+.PHONY : tests/math/test_mat_mul.cu.s
 
 tests/math/test_vec_add.o: tests/math/test_vec_add.cu.o
 .PHONY : tests/math/test_vec_add.o
@@ -198,11 +320,25 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... main"
 	@echo "... test_mat_add"
+	@echo "... test_mat_mul"
 	@echo "... test_vec_add"
+	@echo "... src/math/mat_add.o"
+	@echo "... src/math/mat_add.i"
+	@echo "... src/math/mat_add.s"
+	@echo "... src/math/mat_mul.o"
+	@echo "... src/math/mat_mul.i"
+	@echo "... src/math/mat_mul.s"
+	@echo "... src/math/vec_add.o"
+	@echo "... src/math/vec_add.i"
+	@echo "... src/math/vec_add.s"
 	@echo "... tests/math/test_mat_add.o"
 	@echo "... tests/math/test_mat_add.i"
 	@echo "... tests/math/test_mat_add.s"
+	@echo "... tests/math/test_mat_mul.o"
+	@echo "... tests/math/test_mat_mul.i"
+	@echo "... tests/math/test_mat_mul.s"
 	@echo "... tests/math/test_vec_add.o"
 	@echo "... tests/math/test_vec_add.i"
 	@echo "... tests/math/test_vec_add.s"

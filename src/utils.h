@@ -1,7 +1,14 @@
-#include <cstdio>
+#ifndef UTILS_H
+#define UTILS_H
+
+#include <iostream>
+#include <iomanip>
 
 #define MAX_THREADS 32
+#define IDX2C(i, j, ld) (((j)*(ld))+(i))
 #define CEIL_DIV(N, M) (((N) + (M)-1) / (M))
+const float ALPHA = 1.0;
+const float BETA = 0.0;
 
 void fill_ones(float* arr, int N) {
     for (int i = 0; i < N; ++i) {
@@ -9,20 +16,32 @@ void fill_ones(float* arr, int N) {
     }
 }
 
-void fill_increment(float* arr, int N) {
-    int num = 1;
+template <typename T>
+void fill_increment(T* arr, int N) {
+    T num = 1.0;
     for (int i = 0; i < N; ++i) {
         arr[i] = num;
         ++num;
     }
 }
 
-void print_matrix(float* arr, int rows, int cols, int precision = 3) {
-    for (int i = 0; i < rows * cols; i++) {
-        printf("%.*f ", precision, *(arr + i));
-        if ((i + 1) % cols == 0) {
-            printf("\n");
+template <typename T> void print_matrix(const int &m, const int &n, const T *A, const int &lda);
+
+template <> void print_matrix(const int &m, const int &n, const float *A, const int &lda) {
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            std::printf("%0.2f ", A[j * lda + i]);
         }
+        std::printf("\n");
+    }
+}
+
+template <> void print_matrix(const int &m, const int &n, const double *A, const int &lda) {
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            std::printf("%0.2f ", A[j * lda + i]);
+        }
+        std::printf("\n");
     }
 }
 
@@ -35,6 +54,15 @@ void print_matrix(float* arr, int rows, int cols, int precision = 3) {
         }                                                                                          \
     } while (0)
 
+#define CUBLAS_CHECK(err)                                                                          \
+    do {                                                                                           \
+        cublasStatus_t err_ = (err);                                                               \
+        if (err_ != CUBLAS_STATUS_SUCCESS) {                                                       \
+            std::printf("cublas error %d at %s:%d\n", err_, __FILE__, __LINE__);                   \
+            throw std::runtime_error("cublas error");                                              \
+        }                                                                                          \
+    } while (0)
+
 #define CUDNN_CHECK(err)                                                                           \
     do {                                                                                           \
         cudnnStatus_t err_ = (err);                                                                \
@@ -43,3 +71,5 @@ void print_matrix(float* arr, int rows, int cols, int precision = 3) {
             throw std::runtime_error("cuDNN error");                                               \
         }                                                                                          \
     } while (0)
+
+#endif  // UTILS_H

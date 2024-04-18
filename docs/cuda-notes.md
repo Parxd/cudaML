@@ -9,7 +9,7 @@ Notes from <https://www.olcf.ornl.gov/cuda-training-series/>, <https://siboehm.c
 - launch kernels with `kernel_name<<<parameter1, parameter2>>>`
   - `parameter1` refers to how many "workers" we deploy (otherwise known as blocks)
   - `parameter2` refers to how many threads we deploy in each worker/block
-![alt text](imgs/CUDA_thread_hierarchy.png)
+![alt text](imgs/cuda_thread_hierarchy.png)
 
 ### Vector addition (see `src/math/vec_add.cu`)
 
