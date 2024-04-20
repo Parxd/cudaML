@@ -65,3 +65,29 @@ int idx = threadIdx.x * blockDim.x + threadIdx.y
 - we multiply the threadIdx.x by this element to skip to the next row that we want
 
 ![alt text](imgs/mat_add.png)
+
+---
+
+## cuBLAS Programming
+
+### cublas\<t>gemm 
+
+<https://docs.nvidia.com/cuda/cublas/#cublas-t-gemm>
+
+- we want to matmul `A` and `B` to form `C`
+- in row-major form, we have
+  - `A`: `a * b`
+  - `B`: `b * c`
+  - `C`: `a * c`
+- since cuBLAS is column-major, we use the fact that *iff* AB = C, then B<sup>T</sup>A<sup>T</sup> = C<sup>T</sup>.
+- thus, we tell cuBLAS to calculate BA, because A = A<sup>T</sup> when we switch from row to column major system & we don't need to use `CUBLAS_OP_T`
+- do this by specifying... (in form of `function parameter: value to be used`)
+  - `A = B`
+  - `B = A`
+  - `m = c`
+  - `n = a`
+  - `k = b`
+  - `lda = c`
+  - `ldb = b`
+  - `ldc = c`
+- see `test_cublas1()` in `tests/math/test_mat_mul.cu`

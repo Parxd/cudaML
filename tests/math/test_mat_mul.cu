@@ -16,9 +16,9 @@ void test_cublas1() {
     
     const float alpha = 1.0;
     const float beta = 0.0;
-    const int m = 2;
+    const int m = 4;
     const int n = 3;
-    const int k = 2;
+    const int k = 5;
     
     auto a = new float[m * k];
     auto b = new float[k * n];
@@ -44,7 +44,7 @@ void test_cublas1() {
     CUDA_CHECK(cudaMemcpy(d_b, b, sizeof(float) * k * n, cudaMemcpyHostToDevice));
 
     // input leading dims as if it was column-major...
-    // switch operands & transpose second matrix
+    // switch & transpose operands
     CUBLAS_CHECK(cublasSgemm_v2(
         handle, CUBLAS_OP_N, CUBLAS_OP_N,
         n, m, k, &alpha,

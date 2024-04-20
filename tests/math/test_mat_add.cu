@@ -33,7 +33,7 @@ void test1() {
 
     cudaMemcpy(c, d_c, byte_size, cudaMemcpyDeviceToHost);
 
-    print_matrix(c, N, M);
+    print_matrix(N, M, c, M);
 
     free(a);
     free(b);
@@ -70,7 +70,7 @@ void test2() {
 
     cudaMemcpy(c, d_c, byte_size, cudaMemcpyDeviceToHost);
 
-    print_matrix(c, N, M);
+    print_matrix(N, M, c, M);
 
     cudaFree(d_a);
     cudaFree(d_b);
@@ -78,6 +78,10 @@ void test2() {
     free(a);
     free(b);
     free(c);
+}
+
+void test_cublas1() {
+    
 }
 
 int main(int argc, char** argv) {

@@ -130,6 +130,19 @@ main/fast:
 .PHONY : main/fast
 
 #=============================================================================
+# Target rules for targets named test_array
+
+# Build rule for target.
+test_array: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_array
+.PHONY : test_array
+
+# fast build rule for target.
+test_array/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_array.dir/build.make CMakeFiles/test_array.dir/build
+.PHONY : test_array/fast
+
+#=============================================================================
 # Target rules for targets named test_vec_add
 
 # Build rule for target.
@@ -167,6 +180,30 @@ test_mat_mul: cmake_check_build_system
 test_mat_mul/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_mat_mul.dir/build.make CMakeFiles/test_mat_mul.dir/build
 .PHONY : test_mat_mul/fast
+
+src/array.o: src/array.cu.o
+.PHONY : src/array.o
+
+# target to build an object file
+src/array.cu.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/array.cu.o
+.PHONY : src/array.cu.o
+
+src/array.i: src/array.cu.i
+.PHONY : src/array.i
+
+# target to preprocess a source file
+src/array.cu.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/array.cu.i
+.PHONY : src/array.cu.i
+
+src/array.s: src/array.cu.s
+.PHONY : src/array.s
+
+# target to generate assembly for a file
+src/array.cu.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/array.cu.s
+.PHONY : src/array.cu.s
 
 src/math/mat_add.o: src/math/mat_add.cu.o
 .PHONY : src/math/mat_add.o
@@ -312,6 +349,30 @@ tests/math/test_vec_add.cu.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_vec_add.dir/build.make CMakeFiles/test_vec_add.dir/tests/math/test_vec_add.cu.s
 .PHONY : tests/math/test_vec_add.cu.s
 
+tests/test_array.o: tests/test_array.cu.o
+.PHONY : tests/test_array.o
+
+# target to build an object file
+tests/test_array.cu.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_array.dir/build.make CMakeFiles/test_array.dir/tests/test_array.cu.o
+.PHONY : tests/test_array.cu.o
+
+tests/test_array.i: tests/test_array.cu.i
+.PHONY : tests/test_array.i
+
+# target to preprocess a source file
+tests/test_array.cu.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_array.dir/build.make CMakeFiles/test_array.dir/tests/test_array.cu.i
+.PHONY : tests/test_array.cu.i
+
+tests/test_array.s: tests/test_array.cu.s
+.PHONY : tests/test_array.s
+
+# target to generate assembly for a file
+tests/test_array.cu.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_array.dir/build.make CMakeFiles/test_array.dir/tests/test_array.cu.s
+.PHONY : tests/test_array.cu.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -321,9 +382,13 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... main"
+	@echo "... test_array"
 	@echo "... test_mat_add"
 	@echo "... test_mat_mul"
 	@echo "... test_vec_add"
+	@echo "... src/array.o"
+	@echo "... src/array.i"
+	@echo "... src/array.s"
 	@echo "... src/math/mat_add.o"
 	@echo "... src/math/mat_add.i"
 	@echo "... src/math/mat_add.s"
@@ -342,6 +407,9 @@ help:
 	@echo "... tests/math/test_vec_add.o"
 	@echo "... tests/math/test_vec_add.i"
 	@echo "... tests/math/test_vec_add.s"
+	@echo "... tests/test_array.o"
+	@echo "... tests/test_array.i"
+	@echo "... tests/test_array.s"
 .PHONY : help
 
 

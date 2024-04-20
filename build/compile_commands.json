@@ -1,6 +1,11 @@
 [
 {
   "directory": "/home/parxed/code/projects/cudaML/build",
+  "command": "/usr/bin/nvcc -forward-unknown-to-host-compiler   -g --generate-code=arch=compute_75,code=[compute_75,sm_75] -std=c++11 -x cu -c /home/parxed/code/projects/cudaML/src/array.cu -o CMakeFiles/main.dir/src/array.cu.o",
+  "file": "/home/parxed/code/projects/cudaML/src/array.cu"
+},
+{
+  "directory": "/home/parxed/code/projects/cudaML/build",
   "command": "/usr/bin/nvcc -forward-unknown-to-host-compiler   -g --generate-code=arch=compute_75,code=[compute_75,sm_75] -std=c++11 -x cu -c /home/parxed/code/projects/cudaML/src/math/vec_add.cu -o CMakeFiles/main.dir/src/math/vec_add.cu.o",
   "file": "/home/parxed/code/projects/cudaML/src/math/vec_add.cu"
 },
@@ -13,6 +18,11 @@
   "directory": "/home/parxed/code/projects/cudaML/build",
   "command": "/usr/bin/nvcc -forward-unknown-to-host-compiler   -g --generate-code=arch=compute_75,code=[compute_75,sm_75] -std=c++11 -x cu -c /home/parxed/code/projects/cudaML/src/math/mat_mul.cu -o CMakeFiles/main.dir/src/math/mat_mul.cu.o",
   "file": "/home/parxed/code/projects/cudaML/src/math/mat_mul.cu"
+},
+{
+  "directory": "/home/parxed/code/projects/cudaML/build",
+  "command": "/usr/bin/nvcc -forward-unknown-to-host-compiler   -g --generate-code=arch=compute_75,code=[compute_75,sm_75] -std=c++11 -x cu -c /home/parxed/code/projects/cudaML/tests/test_array.cu -o CMakeFiles/test_array.dir/tests/test_array.cu.o",
+  "file": "/home/parxed/code/projects/cudaML/tests/test_array.cu"
 },
 {
   "directory": "/home/parxed/code/projects/cudaML/build",

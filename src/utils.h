@@ -25,19 +25,19 @@ void fill_increment(T* arr, int N) {
 }
 
 // STRIDE--number of elements to skip to get to next row (number of columns in row-major)
-template <typename T> void print_matrix(const int &m, const int &n, const T *A, const int &stride);
-template <> void print_matrix(const int &m, const int &n, const float *A, const int &stride) {
+template <typename T> void print_matrix(const int &m, const int &n, const T *A, const int &stride, const int& precision = 3);
+template <> void print_matrix(const int &m, const int &n, const float *A, const int &stride, const int& precision) {
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < n; j++) {
-            std::printf("%0.3f\t", A[i * stride + j]);
+            std::printf("%0.*f\t", precision, A[i * stride + j]);
         }
         std::printf("\n");
     }
 }
-template <> void print_matrix(const int &m, const int &n, const double *A, const int &stride) {
+template <> void print_matrix(const int &m, const int &n, const double *A, const int &stride, const int& precision) {
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < n; j++) {
-            std::printf("%0.3f\t", A[i * stride + j]);
+            std::printf("%0.*f\t", precision, A[i * stride + j]);
         }
         std::printf("\n");
     }
