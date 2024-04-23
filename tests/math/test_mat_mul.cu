@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cublas_v2.h>
 #include "../../src/utils.h"
+#include "../../src/math/mat_mul.cu"
 
 void test1() {
 
@@ -66,7 +67,41 @@ void test_cublas1() {
     cudaDeviceReset();
 }
 
+void test_cublas2() {
+    cublasCreate(&cublas_handle);
+    // want to test actual function
+    auto a = new float[3 * 5];
+    auto b = new float[5 * 4];
+    auto c = new float[3 * 4];
+
+    fill_increment<float>(a, 15);
+    fill_increment<float>(b, 20);
+    
+    float *d_a, *d_b, *d_c;
+    CUDA_CHECK(cudaMalloc(reinterpret_cast<void**>(&d_a), sizeof(float) * 15));
+    CUDA_CHECK(cudaMalloc(reinterpret_cast<void**>(&d_b), sizeof(float) * 20));
+    CUDA_CHECK(cudaMalloc(reinterpret_cast<void**>(&d_c), sizeof(float) * 12));
+
+    CUDA_CHECK(cudaMemcpy(d_a, a, sizeof(float) * 15, cudaMemcpyHostToDevice));
+    CUDA_CHECK(cudaMemcpy(d_b, b, sizeof(float) * 20, cudaMemcpyHostToDevice));
+
+    matmul_forward(d_c, d_a, d_b, 3, 5, 4);
+
+    CUDA_CHECK(cudaMemcpy(c, d_c, sizeof(float) * 12, cudaMemcpyDeviceToHost));
+    
+    print_matrix(3, 4, c, 4);
+
+    free(a);
+    free(b);
+    free(c);
+    cudaFree(d_a);
+    cudaFree(d_b);
+    cudaFree(d_c);
+    cublasDestroy(cublas_handle);
+}
+
 int main(int argc, char** argv) {
     // test1();
-    test_cublas1();
+    // test_cublas1();
+    test_cublas2();
 }

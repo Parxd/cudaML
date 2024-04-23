@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "main"
+			"path" : "mlp"
 		}
 	],
 	"backtrace" : 1,
@@ -10,7 +10,8 @@
 	{
 		"commands" : 
 		[
-			"add_executable"
+			"add_executable",
+			"target_link_libraries"
 		],
 		"files" : 
 		[
@@ -24,7 +25,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 33,
+				"line" : 38,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 39,
 				"parent" : 0
 			}
 		]
@@ -52,14 +59,11 @@
 			},
 			"sourceIndexes" : 
 			[
-				0,
-				1,
-				2,
-				3
+				0
 			]
 		}
 	],
-	"id" : "main::@6890427a1f51a3e7e1df",
+	"id" : "mlp::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -71,6 +75,11 @@
 			{
 				"fragment" : "",
 				"role" : "flags"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-lcublas",
+				"role" : "libraries"
 			},
 			{
 				"fragment" : "-lcudadevrt",
@@ -95,8 +104,8 @@
 		],
 		"language" : "CUDA"
 	},
-	"name" : "main",
-	"nameOnDisk" : "main",
+	"name" : "mlp",
+	"nameOnDisk" : "mlp",
 	"paths" : 
 	{
 		"build" : ".",
@@ -108,10 +117,7 @@
 			"name" : "Source Files",
 			"sourceIndexes" : 
 			[
-				0,
-				1,
-				2,
-				3
+				0
 			]
 		}
 	],
@@ -120,25 +126,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/array.cu",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "src/math/vec_add.cu",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "src/math/mat_add.cu",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "src/math/mat_mul.cu",
+			"path" : "src/mlp.cu",
 			"sourceGroupIndex" : 0
 		}
 	],

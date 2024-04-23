@@ -46,36 +46,36 @@
 			[
 				{
 					"directoryIndex" : 0,
-					"id" : "main::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-main-Debug-9ffc1972104b181c1622.json",
-					"name" : "main",
+					"id" : "mlp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-mlp-Debug-fe7ec69920da737d2acf.json",
+					"name" : "mlp",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "test_array::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-test_array-Debug-157188d0364c2f18ae54.json",
+					"jsonFile" : "target-test_array-Debug-fbc1dcf65a7e5b0d8f04.json",
 					"name" : "test_array",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "test_mat_add::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-test_mat_add-Debug-b77fc2822d3bce1b6eff.json",
+					"jsonFile" : "target-test_mat_add-Debug-2f8900b84d7ab722c646.json",
 					"name" : "test_mat_add",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "test_mat_mul::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-test_mat_mul-Debug-acf4adc604d127285339.json",
+					"jsonFile" : "target-test_mat_mul-Debug-e841ea14a6f2f6db40d4.json",
 					"name" : "test_mat_mul",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "test_vec_add::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-test_vec_add-Debug-331b1f6be6811888c03f.json",
+					"jsonFile" : "target-test_vec_add-Debug-3549b9b5aedc3c70800a.json",
 					"name" : "test_vec_add",
 					"projectIndex" : 0
 				}

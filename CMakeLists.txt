@@ -24,16 +24,16 @@ set(MAIN_SOURCES
 
 set(TEST_SOURCES
     tests/test_array.cu
-
     tests/math/test_vec_add.cu
     tests/math/test_mat_add.cu
     tests/math/test_mat_mul.cu
     )
-
-add_executable(main ${MAIN_SOURCES})
 
 foreach(TEST_SOURCE ${TEST_SOURCES})
   get_filename_component(TEST_NAME ${TEST_SOURCE} NAME_WE)
   add_executable(${TEST_NAME} ${TEST_SOURCE})
   target_link_libraries(${TEST_NAME} cublas)
 endforeach()
+
+add_executable(mlp src/mlp.cu)
+target_link_libraries(mlp cublas)
