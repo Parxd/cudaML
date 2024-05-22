@@ -3,7 +3,7 @@
 
 void *malloc_check(size_t size, const char *file, int line) {
     void *ptr = malloc(size);
-    if (ptr == NULL) {
+    if (ptr == nullptr) {
         fprintf(stderr, "Error: Memory allocation failed at %s:%d\n", file, line);
         fprintf(stderr, "Error details:\n");
         fprintf(stderr, "  File: %s\n", file);
@@ -29,14 +29,14 @@ int main(int argc, char** argv) {
     float* b3 = (float*)mallocCheck(sizeof(float) * config[3]);  // (5, 1)
     float* b4 = (float*)mallocCheck(sizeof(float) * config[4]);  // (2, 1)
 
-    float* input = (float*)mallocCheck(sizeof(float) * batch_size * config[0]);  //  input size of (32, 3), batch size of 32;
-    // y = x @ W^T + b
+    float* input = (float*)mallocCheck(sizeof(float) * batch_size * config[0]);  //  input shape (32, 3)
+    // y = (x @ W^T) + b
     float* f1 = (float*)mallocCheck(sizeof(float) * batch_size * config[1]);
     float* f2 = (float*)mallocCheck(sizeof(float) * batch_size * config[2]);
     float* f3 = (float*)mallocCheck(sizeof(float) * batch_size * config[3]);
     float* f4 = (float*)mallocCheck(sizeof(float) * batch_size * config[4]);
 
-    float* d_w1, d_w2, d_w3, d_w4, d_b1, d_b2, d_b3, d_b4, d_input, d_f1, d_f2, d_f3, d_f4;
+    float* d_w1, *d_w2, *d_w3, *d_w4, *d_b1, *d_b2, *d_b3, *d_b4, *d_input, *d_f1, *d_f2, *d_f3, *d_f4;
     CUDA_CHECK(cudaMalloc((void**)&d_w1, sizeof(float) * config[0] * config[1]));
     CUDA_CHECK(cudaMalloc((void**)&d_w2, sizeof(float) * config[1] * config[2]));
     CUDA_CHECK(cudaMalloc((void**)&d_w3, sizeof(float) * config[2] * config[3]));
@@ -50,6 +50,8 @@ int main(int argc, char** argv) {
     CUDA_CHECK(cudaMalloc((void**)&d_f2, sizeof(float) * batch_size * config[2]));
     CUDA_CHECK(cudaMalloc((void**)&d_f3, sizeof(float) * batch_size * config[3]));
     CUDA_CHECK(cudaMalloc((void**)&d_f4, sizeof(float) * batch_size * config[4]));
+
+    
 
     cudaFree(d_w1);
     cudaFree(d_w2);

@@ -4,17 +4,36 @@
 
 static cublasHandle_t cublas_handle;
 
-__global__ void matmul_1(float* a, float* b, float* c) {
+__global__ void matmul_cuda_1(float* a, float* b, float* c) {
     
 }
 
-void matmul_forward(float *out, float* a, float* b,
+void matmul_cublas(float* out, float* a, float* b,
+                   bool a_trans, bool b_trans,
+                   int row, int inner, int col) {
+    // AB
+    if (!a_trans && !b_trans) {
+        CUBLAS_CHECK(cublasSgemm_v2(
+            cublas_handle,
+            CUBLAS_OP_N, CUBLAS_OP_N,
+            col, row, inner, &ALPHA,
+            b, col, a, inner, &BETA,
+            out, col
+        ));
+    }
+    // AB^T
+    else if (!a_trans && b_trans) {
+        CUBLAS_CHECK(cublasSgemm_v2(
+            cublas_handle,
+            CUBLAS_OP_T, CUBLAS_OP_N,
+            col, row, inner, &ALPHA,
+            b, inner, a, col, &BETA,
+            out, col
+        ));
+    }
+}
+
+void linear_forward(float* out, float* W, float* x, float* b,
                     int row, int inner, int col) {
-    CUBLAS_CHECK(cublasSgemm_v2(
-        cublas_handle,
-        CUBLAS_OP_N, CUBLAS_OP_N,
-        col, row, inner, &ALPHA,
-        b, col, a, inner, &BETA,
-        out, col
-    ));
+    // out = x @ W^T
 }
