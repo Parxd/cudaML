@@ -1,4 +1,6 @@
 #include <cuda_runtime.h>
+#include <cublas_v2.h>
+#include "../utils.h"
 
 // as pointed in docs, matrix addition really doesn't need 2D blocks
 __global__ void matadd_1(float* a, float* b, float* c, int N, int M) {
@@ -15,4 +17,13 @@ __global__ void matadd_2(float* a, float* b, float* c) {
     int thread_idx = threadIdx.x + blockDim.x * threadIdx.y;
     int global_idx = (block_idx * (blockDim.x * blockDim.y)) + thread_idx;
     c[global_idx] = a[global_idx] + b[global_idx];
+}
+
+void matadd_cublas(float* out, float* a, float* b, int rows, int cols) {
+    CUBLAS_CHECK(cublasSgeam(
+        cublas_handle,
+        CUBLAS_OP_N, CUBLAS_OP_N,
+        rows, cols, &ALPHA,
+        a, rows, &GEAM_BETA, b, rows, out, rows
+    ));
 }

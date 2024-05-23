@@ -1,19 +1,6 @@
 #include <cublas_v2.h>
+#include "math/mat_add.cu"
 #include "math/mat_mul.cu"
-
-void *malloc_check(size_t size, const char *file, int line) {
-    void *ptr = malloc(size);
-    if (ptr == nullptr) {
-        fprintf(stderr, "Error: Memory allocation failed at %s:%d\n", file, line);
-        fprintf(stderr, "Error details:\n");
-        fprintf(stderr, "  File: %s\n", file);
-        fprintf(stderr, "  Line: %d\n", line);
-        fprintf(stderr, "  Size: %zu bytes\n", size);
-        exit(EXIT_FAILURE);
-    }
-    return ptr;
-}
-#define mallocCheck(size) malloc_check(size, __FILE__, __LINE__)
 
 int main(int argc, char** argv) {
     cublasCreate(&cublas_handle);
@@ -51,20 +38,18 @@ int main(int argc, char** argv) {
     CUDA_CHECK(cudaMalloc((void**)&d_f3, sizeof(float) * batch_size * config[3]));
     CUDA_CHECK(cudaMalloc((void**)&d_f4, sizeof(float) * batch_size * config[4]));
 
-    
-
-    cudaFree(d_w1);
-    cudaFree(d_w2);
-    cudaFree(d_w3);
-    cudaFree(d_w4);
-    cudaFree(d_b1);
-    cudaFree(d_b2);
-    cudaFree(d_b3);
-    cudaFree(d_b4);
-    cudaFree(d_f1);
-    cudaFree(d_f2);
-    cudaFree(d_f3);
-    cudaFree(d_f4);
+    CUDA_CHECK(cudaFree(d_w1));
+    CUDA_CHECK(cudaFree(d_w2));
+    CUDA_CHECK(cudaFree(d_w3));
+    CUDA_CHECK(cudaFree(d_w4));
+    CUDA_CHECK(cudaFree(d_b1));
+    CUDA_CHECK(cudaFree(d_b2));
+    CUDA_CHECK(cudaFree(d_b3));
+    CUDA_CHECK(cudaFree(d_b4));
+    CUDA_CHECK(cudaFree(d_f1));
+    CUDA_CHECK(cudaFree(d_f2));
+    CUDA_CHECK(cudaFree(d_f3));
+    CUDA_CHECK(cudaFree(d_f4));
     cublasDestroy(cublas_handle);
     free(w1);
     free(w2);

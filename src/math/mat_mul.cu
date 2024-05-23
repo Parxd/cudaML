@@ -2,8 +2,6 @@
 #include <cublas_v2.h>
 #include "../utils.h"
 
-static cublasHandle_t cublas_handle;
-
 __global__ void matmul_cuda_1(float* a, float* b, float* c) {
     
 }
@@ -33,7 +31,3 @@ void matmul_cublas(float* out, float* a, float* b,
     }
 }
 
-void linear_forward(float* out, float* W, float* x, float* b,
-                    int row, int inner, int col) {
-    // out = x @ W^T
-}

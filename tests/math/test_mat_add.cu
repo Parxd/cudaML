@@ -81,10 +81,90 @@ void test2() {
 }
 
 void test_cublas1() {
+    // testing out-of-place geam
+    cublasCreate(&cublas_handle);
+
+    int rows = 15;
+    int cols = 17;
+    int byte_size = rows * cols * sizeof(float);
+
+    auto a = new float[rows * cols];
+    auto b = new float[rows * cols];
+    auto c = new float[rows * cols];
+
+    fill_ones(a, rows * cols);
+    fill_ones(b, rows * cols);
+
+    float *d_a, *d_b, *d_c;
+    CUDA_CHECK(cudaMalloc(reinterpret_cast<void**>(&d_a), byte_size));
+    CUDA_CHECK(cudaMalloc(reinterpret_cast<void**>(&d_b), byte_size));
+    CUDA_CHECK(cudaMalloc(reinterpret_cast<void**>(&d_c), byte_size));
     
+    cudaMemcpy(d_a, a, byte_size, cudaMemcpyHostToDevice);
+    cudaMemcpy(d_b, b, byte_size, cudaMemcpyHostToDevice);
+
+    matadd_cublas(d_c, d_a, d_b, rows, cols);
+    
+    cudaMemcpy(c, d_c, byte_size, cudaMemcpyDeviceToHost);
+
+    print_matrix(rows, cols, c, cols);
+
+    cudaFree(d_a);
+    cudaFree(d_b);
+    cudaFree(d_c);
+    free(a);
+    free(b);
+    free(c);
+}
+
+void test_cublas2() {
+    // testing in-place geam
+    cublasCreate(&cublas_handle);
+
+    int rows = 3;
+    int cols = 2;
+    int byte_size = rows * cols * sizeof(float);
+
+    auto a = new float[rows * cols];
+    auto b = new float[rows * cols];
+    auto c = new float[rows * cols];
+
+    fill_increment<float>(a, rows * cols);
+    fill_increment<float>(b, rows * cols);
+    fill_zeros<float>(c, rows * cols);
+
+    float *d_a, *d_b, *d_c;
+    CUDA_CHECK(cudaMalloc(reinterpret_cast<void**>(&d_a), byte_size));
+    CUDA_CHECK(cudaMalloc(reinterpret_cast<void**>(&d_b), byte_size));
+    CUDA_CHECK(cudaMalloc(reinterpret_cast<void**>(&d_c), byte_size));
+    
+    cudaMemcpy(d_a, a, byte_size, cudaMemcpyHostToDevice);
+    cudaMemcpy(d_b, b, byte_size, cudaMemcpyHostToDevice);
+
+    matadd_cublas(d_a, d_a, d_b, rows, cols);
+    // CUBLAS_CHECK(cublasSgeam(
+    //     cublas_handle,
+    //     CUBLAS_OP_N, CUBLAS_OP_N,
+    //     rows, cols, &ALPHA, d_a, rows,
+    //     &GEAM_BETA, d_b, rows,
+    //     d_c, rows
+    // ));
+    
+    cudaMemcpy(c, d_a, byte_size, cudaMemcpyDeviceToHost);
+
+    print_matrix(rows, cols, c, cols);
+
+    cudaFree(d_a);
+    cudaFree(d_b);
+    cudaFree(d_c);
+    free(a);
+    free(b);
+    free(c);
 }
 
 int main(int argc, char** argv) {
     // test1();
-    test2();
+    // test2();
+    // test_cublas1();
+    test_cublas2();
 }

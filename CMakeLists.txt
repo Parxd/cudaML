@@ -27,6 +27,7 @@ set(TEST_SOURCES
     tests/math/test_vec_add.cu
     tests/math/test_mat_add.cu
     tests/math/test_mat_mul.cu
+    tests/math/test_linear.cu
     )
 
 foreach(TEST_SOURCE ${TEST_SOURCES})

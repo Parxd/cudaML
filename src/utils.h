@@ -3,15 +3,26 @@
 
 #include <iostream>
 #include <iomanip>
+#include <cublas_v2.h>
 
 #define MAX_THREADS 32
 #define CEIL_DIV(N, M) (((N) + (M)-1) / (M))
+static cublasHandle_t cublas_handle;
 const float ALPHA = 1.0;
 const float BETA = 0.0;
+const float GEAM_BETA = 1.0;
 
-void fill_ones(float* arr, int N) {
+template <typename T>
+void fill_zeros(T* arr, int N) {
     for (int i = 0; i < N; ++i) {
-        arr[i] = 1.0;
+        arr[i] = T(0);
+    }
+}
+
+template <typename T>
+void fill_ones(T* arr, int N) {
+    for (int i = 0; i < N; ++i) {
+        arr[i] = T(1);
     }
 }
 
@@ -42,6 +53,20 @@ template <> void print_matrix(const int &m, const int &n, const double *A, const
         std::printf("\n");
     }
 }
+
+void *malloc_check(size_t size, const char *file, int line) {
+    void *ptr = malloc(size);
+    if (ptr == nullptr) {
+        fprintf(stderr, "Error: Memory allocation failed at %s:%d\n", file, line);
+        fprintf(stderr, "Error details:\n");
+        fprintf(stderr, "  File: %s\n", file);
+        fprintf(stderr, "  Line: %d\n", line);
+        fprintf(stderr, "  Size: %zu bytes\n", size);
+        exit(EXIT_FAILURE);
+    }
+    return ptr;
+}
+#define mallocCheck(size) malloc_check(size, __FILE__, __LINE__)
 
 #define CUDA_CHECK(err)                                                                            \
     do {                                                                                           \
