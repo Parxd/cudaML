@@ -21,6 +21,11 @@
 },
 {
   "directory": "/home/parxed/code/projects/cudaML/build",
+  "command": "/usr/bin/nvcc -forward-unknown-to-host-compiler   -g --generate-code=arch=compute_75,code=[compute_75,sm_75] -std=c++11 -x cu -c /home/parxed/code/projects/cudaML/tests/math/test_linear.cu -o CMakeFiles/test_linear.dir/tests/math/test_linear.cu.o",
+  "file": "/home/parxed/code/projects/cudaML/tests/math/test_linear.cu"
+},
+{
+  "directory": "/home/parxed/code/projects/cudaML/build",
   "command": "/usr/bin/nvcc -forward-unknown-to-host-compiler   -g --generate-code=arch=compute_75,code=[compute_75,sm_75] -std=c++11 -x cu -c /home/parxed/code/projects/cudaML/src/mlp.cu -o CMakeFiles/mlp.dir/src/mlp.cu.o",
   "file": "/home/parxed/code/projects/cudaML/src/mlp.cu"
 }

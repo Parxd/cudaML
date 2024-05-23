@@ -56,5 +56,6 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/test_vec_add.dir/DependInfo.cmake"
   "CMakeFiles/test_mat_add.dir/DependInfo.cmake"
   "CMakeFiles/test_mat_mul.dir/DependInfo.cmake"
+  "CMakeFiles/test_linear.dir/DependInfo.cmake"
   "CMakeFiles/mlp.dir/DependInfo.cmake"
   )

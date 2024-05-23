@@ -169,6 +169,19 @@ test_mat_mul/fast:
 .PHONY : test_mat_mul/fast
 
 #=============================================================================
+# Target rules for targets named test_linear
+
+# Build rule for target.
+test_linear: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_linear
+.PHONY : test_linear
+
+# fast build rule for target.
+test_linear/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_linear.dir/build.make CMakeFiles/test_linear.dir/build
+.PHONY : test_linear/fast
+
+#=============================================================================
 # Target rules for targets named mlp
 
 # Build rule for target.
@@ -204,6 +217,30 @@ src/mlp.s: src/mlp.cu.s
 src/mlp.cu.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mlp.dir/build.make CMakeFiles/mlp.dir/src/mlp.cu.s
 .PHONY : src/mlp.cu.s
+
+tests/math/test_linear.o: tests/math/test_linear.cu.o
+.PHONY : tests/math/test_linear.o
+
+# target to build an object file
+tests/math/test_linear.cu.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_linear.dir/build.make CMakeFiles/test_linear.dir/tests/math/test_linear.cu.o
+.PHONY : tests/math/test_linear.cu.o
+
+tests/math/test_linear.i: tests/math/test_linear.cu.i
+.PHONY : tests/math/test_linear.i
+
+# target to preprocess a source file
+tests/math/test_linear.cu.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_linear.dir/build.make CMakeFiles/test_linear.dir/tests/math/test_linear.cu.i
+.PHONY : tests/math/test_linear.cu.i
+
+tests/math/test_linear.s: tests/math/test_linear.cu.s
+.PHONY : tests/math/test_linear.s
+
+# target to generate assembly for a file
+tests/math/test_linear.cu.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_linear.dir/build.make CMakeFiles/test_linear.dir/tests/math/test_linear.cu.s
+.PHONY : tests/math/test_linear.cu.s
 
 tests/math/test_mat_add.o: tests/math/test_mat_add.cu.o
 .PHONY : tests/math/test_mat_add.o
@@ -311,12 +348,16 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... mlp"
 	@echo "... test_array"
+	@echo "... test_linear"
 	@echo "... test_mat_add"
 	@echo "... test_mat_mul"
 	@echo "... test_vec_add"
 	@echo "... src/mlp.o"
 	@echo "... src/mlp.i"
 	@echo "... src/mlp.s"
+	@echo "... tests/math/test_linear.o"
+	@echo "... tests/math/test_linear.i"
+	@echo "... tests/math/test_linear.s"
 	@echo "... tests/math/test_mat_add.o"
 	@echo "... tests/math/test_mat_add.i"
 	@echo "... tests/math/test_mat_add.s"

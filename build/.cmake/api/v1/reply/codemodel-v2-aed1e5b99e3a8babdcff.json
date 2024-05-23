@@ -19,7 +19,8 @@
 						1,
 						2,
 						3,
-						4
+						4,
+						5
 					]
 				}
 			],
@@ -38,7 +39,8 @@
 						1,
 						2,
 						3,
-						4
+						4,
+						5
 					]
 				}
 			],
@@ -47,35 +49,42 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "mlp::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-mlp-Debug-fe7ec69920da737d2acf.json",
+					"jsonFile" : "target-mlp-Debug-312c9ccd10f5bd19930e.json",
 					"name" : "mlp",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "test_array::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-test_array-Debug-fbc1dcf65a7e5b0d8f04.json",
+					"jsonFile" : "target-test_array-Debug-1557843a7c074e96b527.json",
 					"name" : "test_array",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
+					"id" : "test_linear::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_linear-Debug-6745f81f5ef26402eda5.json",
+					"name" : "test_linear",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
 					"id" : "test_mat_add::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-test_mat_add-Debug-2f8900b84d7ab722c646.json",
+					"jsonFile" : "target-test_mat_add-Debug-aff6df2848676f73e929.json",
 					"name" : "test_mat_add",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "test_mat_mul::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-test_mat_mul-Debug-e841ea14a6f2f6db40d4.json",
+					"jsonFile" : "target-test_mat_mul-Debug-2cbbcf68d839a6909c66.json",
 					"name" : "test_mat_mul",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "test_vec_add::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-test_vec_add-Debug-3549b9b5aedc3c70800a.json",
+					"jsonFile" : "target-test_vec_add-Debug-4a2538b54d5031972ff0.json",
 					"name" : "test_vec_add",
 					"projectIndex" : 0
 				}
