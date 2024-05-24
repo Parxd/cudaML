@@ -1,5 +1,5 @@
-#ifndef UTILS_H
-#define UTILS_H
+#ifndef UTILS
+#define UTILS
 
 #include <iostream>
 #include <iomanip>
@@ -95,4 +95,4 @@ void *malloc_check(size_t size, const char *file, int line) {
         }                                                                                          \
     } while (0)
 
-#endif  // UTILS_H
+#endif

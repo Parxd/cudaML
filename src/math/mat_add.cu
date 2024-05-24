@@ -1,3 +1,6 @@
+#ifndef MAT_ADD
+#define MAT_ADD
+
 #include <cuda_runtime.h>
 #include <cublas_v2.h>
 #include "../utils.h"
@@ -27,3 +30,5 @@ void matadd_cublas(float* out, float* a, float* b, int rows, int cols) {
         a, rows, &GEAM_BETA, b, rows, out, rows
     ));
 }
+
+#endif

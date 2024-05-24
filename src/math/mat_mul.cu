@@ -1,3 +1,6 @@
+#ifndef MAT_MUL
+#define MAT_MUL
+
 #include <cuda_runtime.h>
 #include <cublas_v2.h>
 #include "../utils.h"
@@ -31,3 +34,4 @@ void matmul_cublas(float* out, float* a, float* b,
     }
 }
 
+#endif
