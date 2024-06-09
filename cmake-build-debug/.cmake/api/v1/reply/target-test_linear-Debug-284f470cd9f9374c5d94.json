@@ -25,13 +25,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 35,
+				"line" : 38,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 36,
+				"line" : 39,
 				"parent" : 0
 			}
 		]
@@ -42,10 +42,10 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g --generate-code=arch=compute_75,code=[compute_75,sm_75]"
+					"fragment" : "-g -std=c++11 \"--generate-code=arch=compute_75,code=[compute_75,sm_75]\""
 				},
 				{
-					"fragment" : "-std=c++11"
+					"fragment" : "-Werror all-warnings"
 				}
 			],
 			"language" : "CUDA",
@@ -69,7 +69,7 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "-g --generate-code=arch=compute_75,code=[compute_75,sm_75]",
+				"fragment" : "-g \"--generate-code=arch=compute_75,code=[compute_75,sm_75]\"",
 				"role" : "flags"
 			},
 			{

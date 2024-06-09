@@ -19,7 +19,10 @@
 						1,
 						2,
 						3,
-						4
+						4,
+						5,
+						6,
+						7
 					]
 				}
 			],
@@ -38,7 +41,10 @@
 						1,
 						2,
 						3,
-						4
+						4,
+						5,
+						6,
+						7
 					]
 				}
 			],
@@ -47,35 +53,56 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "mlp::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-mlp-Debug-1c4c824b60d2d8312bc2.json",
+					"jsonFile" : "target-mlp-Debug-686c5aa2fcfc515ab7be.json",
 					"name" : "mlp",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "test_array::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-test_array-Debug-7ba5564da633bc5c7211.json",
+					"jsonFile" : "target-test_array-Debug-ff6733bd8b0920c540bc.json",
 					"name" : "test_array",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
+					"id" : "test_linear::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_linear-Debug-594e54a49ee9c03a9109.json",
+					"name" : "test_linear",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
 					"id" : "test_mat_add::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-test_mat_add-Debug-dc1d89a30e4dea2cc38e.json",
+					"jsonFile" : "target-test_mat_add-Debug-addb3f4b92beb8763f61.json",
 					"name" : "test_mat_add",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "test_mat_mul::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-test_mat_mul-Debug-23069bd2fc3486406728.json",
+					"jsonFile" : "target-test_mat_mul-Debug-92797b7c471ab2b6076e.json",
 					"name" : "test_mat_mul",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
+					"id" : "test_mems::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_mems-Debug-a24b28e6a23b7bfe4417.json",
+					"name" : "test_mems",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test_stream::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_stream-Debug-e9cd7f853ab3d1c2b2dd.json",
+					"name" : "test_stream",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
 					"id" : "test_vec_add::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-test_vec_add-Debug-7571b76ccae25f58d5e5.json",
+					"jsonFile" : "target-test_vec_add-Debug-c984359f5a74c9aa9bf9.json",
 					"name" : "test_vec_add",
 					"projectIndex" : 0
 				}
@@ -85,12 +112,12 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/parxed/code/projects/cudaML/cmake-build-debug",
+		"build" : "/home/parxed/code/projects/cudaML/build",
 		"source" : "/home/parxed/code/projects/cudaML"
 	},
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 6
+		"minor" : 3
 	}
 }

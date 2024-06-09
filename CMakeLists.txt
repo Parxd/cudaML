@@ -24,6 +24,9 @@ set(MAIN_SOURCES
 
 set(TEST_SOURCES
     tests/test_array.cu
+    tests/test_mems.cu
+    tests/test_stream.cu
+
     tests/math/test_vec_add.cu
     tests/math/test_mat_add.cu
     tests/math/test_mat_mul.cu

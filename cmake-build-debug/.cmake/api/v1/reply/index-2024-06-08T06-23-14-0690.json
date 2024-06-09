@@ -8,10 +8,10 @@
 		},
 		"paths" : 
 		{
-			"cmake" : "/home/parxed/.local/share/JetBrains/Toolbox/apps/clion-nova/bin/cmake/linux/x64/bin/cmake",
-			"cpack" : "/home/parxed/.local/share/JetBrains/Toolbox/apps/clion-nova/bin/cmake/linux/x64/bin/cpack",
-			"ctest" : "/home/parxed/.local/share/JetBrains/Toolbox/apps/clion-nova/bin/cmake/linux/x64/bin/ctest",
-			"root" : "/home/parxed/.local/share/JetBrains/Toolbox/apps/clion-nova/bin/cmake/linux/x64/share/cmake-3.28"
+			"cmake" : "/snap/clion/275/bin/cmake/linux/x64/bin/cmake",
+			"cpack" : "/snap/clion/275/bin/cmake/linux/x64/bin/cpack",
+			"ctest" : "/snap/clion/275/bin/cmake/linux/x64/bin/ctest",
+			"root" : "/snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28"
 		},
 		"version" : 
 		{
@@ -26,7 +26,7 @@
 	"objects" : 
 	[
 		{
-			"jsonFile" : "codemodel-v2-044d7cc8bd40932e717f.json",
+			"jsonFile" : "codemodel-v2-e0889305e7e305078e3b.json",
 			"kind" : "codemodel",
 			"version" : 
 			{
@@ -35,7 +35,7 @@
 			}
 		},
 		{
-			"jsonFile" : "cache-v2-2e1f7578ca02602e68fa.json",
+			"jsonFile" : "cache-v2-2a62ece4c925c1153af3.json",
 			"kind" : "cache",
 			"version" : 
 			{
@@ -44,7 +44,7 @@
 			}
 		},
 		{
-			"jsonFile" : "cmakeFiles-v1-74001d86e62c99dfaf5a.json",
+			"jsonFile" : "cmakeFiles-v1-cb4796f21f565ebb4196.json",
 			"kind" : "cmakeFiles",
 			"version" : 
 			{
@@ -66,7 +66,7 @@
 	{
 		"cache-v2" : 
 		{
-			"jsonFile" : "cache-v2-2e1f7578ca02602e68fa.json",
+			"jsonFile" : "cache-v2-2a62ece4c925c1153af3.json",
 			"kind" : "cache",
 			"version" : 
 			{
@@ -76,7 +76,7 @@
 		},
 		"cmakeFiles-v1" : 
 		{
-			"jsonFile" : "cmakeFiles-v1-74001d86e62c99dfaf5a.json",
+			"jsonFile" : "cmakeFiles-v1-cb4796f21f565ebb4196.json",
 			"kind" : "cmakeFiles",
 			"version" : 
 			{
@@ -86,7 +86,7 @@
 		},
 		"codemodel-v2" : 
 		{
-			"jsonFile" : "codemodel-v2-044d7cc8bd40932e717f.json",
+			"jsonFile" : "codemodel-v2-e0889305e7e305078e3b.json",
 			"kind" : "codemodel",
 			"version" : 
 			{

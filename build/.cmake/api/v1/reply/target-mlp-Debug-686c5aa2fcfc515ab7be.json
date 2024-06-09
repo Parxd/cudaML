@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "test_mat_add"
+			"path" : "mlp"
 		}
 	],
 	"backtrace" : 1,
@@ -25,13 +25,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 34,
+				"line" : 42,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 35,
+				"line" : 43,
 				"parent" : 0
 			}
 		]
@@ -42,10 +42,10 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g -std=c++11 \"--generate-code=arch=compute_75,code=[compute_75,sm_75]\""
+					"fragment" : "-g --generate-code=arch=compute_75,code=[compute_75,sm_75]"
 				},
 				{
-					"fragment" : "-Werror all-warnings"
+					"fragment" : "-std=c++11"
 				}
 			],
 			"language" : "CUDA",
@@ -63,13 +63,13 @@
 			]
 		}
 	],
-	"id" : "test_mat_add::@6890427a1f51a3e7e1df",
+	"id" : "mlp::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "-g \"--generate-code=arch=compute_75,code=[compute_75,sm_75]\"",
+				"fragment" : "-g --generate-code=arch=compute_75,code=[compute_75,sm_75]",
 				"role" : "flags"
 			},
 			{
@@ -104,8 +104,8 @@
 		],
 		"language" : "CUDA"
 	},
-	"name" : "test_mat_add",
-	"nameOnDisk" : "test_mat_add",
+	"name" : "mlp",
+	"nameOnDisk" : "mlp",
 	"paths" : 
 	{
 		"build" : ".",
@@ -126,7 +126,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "tests/math/test_mat_add.cu",
+			"path" : "src/mlp.cu",
 			"sourceGroupIndex" : 0
 		}
 	],

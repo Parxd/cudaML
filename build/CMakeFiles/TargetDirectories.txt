@@ -1,4 +1,6 @@
 /home/parxed/code/projects/cudaML/build/CMakeFiles/test_array.dir
+/home/parxed/code/projects/cudaML/build/CMakeFiles/test_mems.dir
+/home/parxed/code/projects/cudaML/build/CMakeFiles/test_stream.dir
 /home/parxed/code/projects/cudaML/build/CMakeFiles/test_vec_add.dir
 /home/parxed/code/projects/cudaML/build/CMakeFiles/test_mat_add.dir
 /home/parxed/code/projects/cudaML/build/CMakeFiles/test_mat_mul.dir

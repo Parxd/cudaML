@@ -115,7 +115,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/parxed/.local/share/JetBrains/Toolbox/apps/clion-nova/bin/cmake/linux/x64/bin/cmake"
+			"value" : "/snap/clion/275/bin/cmake/linux/x64/bin/cmake"
 		},
 		{
 			"name" : "CMAKE_CPACK_COMMAND",
@@ -127,7 +127,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/parxed/.local/share/JetBrains/Toolbox/apps/clion-nova/bin/cmake/linux/x64/bin/cpack"
+			"value" : "/snap/clion/275/bin/cmake/linux/x64/bin/cpack"
 		},
 		{
 			"name" : "CMAKE_CTEST_COMMAND",
@@ -139,7 +139,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/parxed/.local/share/JetBrains/Toolbox/apps/clion-nova/bin/cmake/linux/x64/bin/ctest"
+			"value" : "/snap/clion/275/bin/cmake/linux/x64/bin/ctest"
 		},
 		{
 			"name" : "CMAKE_CUDA_COMPILER",
@@ -635,7 +635,7 @@
 				}
 			],
 			"type" : "UNINITIALIZED",
-			"value" : "/home/parxed/.local/share/JetBrains/Toolbox/apps/clion-nova/bin/ninja/linux/x64/ninja"
+			"value" : "/snap/clion/275/bin/ninja/linux/x64/ninja"
 		},
 		{
 			"name" : "CMAKE_MODULE_LINKER_FLAGS",
@@ -867,7 +867,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/parxed/.local/share/JetBrains/Toolbox/apps/clion-nova/bin/cmake/linux/x64/share/cmake-3.28"
+			"value" : "/snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28"
 		},
 		{
 			"name" : "CMAKE_SHARED_LINKER_FLAGS",
@@ -1663,7 +1663,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/parxed/.local/share/JetBrains/Toolbox/apps/clion-nova/bin/cmake/linux/x64/share/cmake-3.28/Modules/FindCUDA/make2cmake.cmake"
+			"value" : "/snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/FindCUDA/make2cmake.cmake"
 		},
 		{
 			"name" : "CUDA_nppc_LIBRARY",
@@ -1867,7 +1867,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/parxed/.local/share/JetBrains/Toolbox/apps/clion-nova/bin/cmake/linux/x64/share/cmake-3.28/Modules/FindCUDA/parse_cubin.cmake"
+			"value" : "/snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/FindCUDA/parse_cubin.cmake"
 		},
 		{
 			"name" : "CUDA_rt_LIBRARY",
@@ -1895,7 +1895,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/parxed/.local/share/JetBrains/Toolbox/apps/clion-nova/bin/cmake/linux/x64/share/cmake-3.28/Modules/FindCUDA/run_nvcc.cmake"
+			"value" : "/snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/FindCUDA/run_nvcc.cmake"
 		},
 		{
 			"name" : "FIND_PACKAGE_MESSAGE_DETAILS_CUDA",

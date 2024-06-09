@@ -19,7 +19,7 @@ void test1() {
     assert(A.m_host);  // host ptr should still exist, albeit now considered "garbage" mem
     assert(A.m_device);  // and of course, cuda malloc should have been called
 
-    A.print();  // TODO: test stream output w/ std::stringstream
+    A.print();  // TODO: test stream output (std::stringstream)
 
     assert(A.m_current == gpu);
 }

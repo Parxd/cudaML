@@ -130,6 +130,32 @@ test_array/fast:
 .PHONY : test_array/fast
 
 #=============================================================================
+# Target rules for targets named test_mems
+
+# Build rule for target.
+test_mems: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_mems
+.PHONY : test_mems
+
+# fast build rule for target.
+test_mems/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_mems.dir/build.make CMakeFiles/test_mems.dir/build
+.PHONY : test_mems/fast
+
+#=============================================================================
+# Target rules for targets named test_stream
+
+# Build rule for target.
+test_stream: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_stream
+.PHONY : test_stream
+
+# fast build rule for target.
+test_stream/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_stream.dir/build.make CMakeFiles/test_stream.dir/build
+.PHONY : test_stream/fast
+
+#=============================================================================
 # Target rules for targets named test_vec_add
 
 # Build rule for target.
@@ -338,6 +364,54 @@ tests/test_array.cu.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_array.dir/build.make CMakeFiles/test_array.dir/tests/test_array.cu.s
 .PHONY : tests/test_array.cu.s
 
+tests/test_mems.o: tests/test_mems.cu.o
+.PHONY : tests/test_mems.o
+
+# target to build an object file
+tests/test_mems.cu.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_mems.dir/build.make CMakeFiles/test_mems.dir/tests/test_mems.cu.o
+.PHONY : tests/test_mems.cu.o
+
+tests/test_mems.i: tests/test_mems.cu.i
+.PHONY : tests/test_mems.i
+
+# target to preprocess a source file
+tests/test_mems.cu.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_mems.dir/build.make CMakeFiles/test_mems.dir/tests/test_mems.cu.i
+.PHONY : tests/test_mems.cu.i
+
+tests/test_mems.s: tests/test_mems.cu.s
+.PHONY : tests/test_mems.s
+
+# target to generate assembly for a file
+tests/test_mems.cu.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_mems.dir/build.make CMakeFiles/test_mems.dir/tests/test_mems.cu.s
+.PHONY : tests/test_mems.cu.s
+
+tests/test_stream.o: tests/test_stream.cu.o
+.PHONY : tests/test_stream.o
+
+# target to build an object file
+tests/test_stream.cu.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_stream.dir/build.make CMakeFiles/test_stream.dir/tests/test_stream.cu.o
+.PHONY : tests/test_stream.cu.o
+
+tests/test_stream.i: tests/test_stream.cu.i
+.PHONY : tests/test_stream.i
+
+# target to preprocess a source file
+tests/test_stream.cu.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_stream.dir/build.make CMakeFiles/test_stream.dir/tests/test_stream.cu.i
+.PHONY : tests/test_stream.cu.i
+
+tests/test_stream.s: tests/test_stream.cu.s
+.PHONY : tests/test_stream.s
+
+# target to generate assembly for a file
+tests/test_stream.cu.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_stream.dir/build.make CMakeFiles/test_stream.dir/tests/test_stream.cu.s
+.PHONY : tests/test_stream.cu.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -351,6 +425,8 @@ help:
 	@echo "... test_linear"
 	@echo "... test_mat_add"
 	@echo "... test_mat_mul"
+	@echo "... test_mems"
+	@echo "... test_stream"
 	@echo "... test_vec_add"
 	@echo "... src/mlp.o"
 	@echo "... src/mlp.i"
@@ -370,6 +446,12 @@ help:
 	@echo "... tests/test_array.o"
 	@echo "... tests/test_array.i"
 	@echo "... tests/test_array.s"
+	@echo "... tests/test_mems.o"
+	@echo "... tests/test_mems.i"
+	@echo "... tests/test_mems.s"
+	@echo "... tests/test_stream.o"
+	@echo "... tests/test_stream.i"
+	@echo "... tests/test_stream.s"
 .PHONY : help
 
 
