@@ -1,11 +1,6 @@
 [
 {
   "directory": "/home/parxed/code/projects/cudaML/build",
-  "command": "/usr/bin/nvcc -forward-unknown-to-host-compiler   -g --generate-code=arch=compute_75,code=[compute_75,sm_75] -std=c++11 -x cu -c /home/parxed/code/projects/cudaML/tests/test_array.cu -o CMakeFiles/test_array.dir/tests/test_array.cu.o",
-  "file": "/home/parxed/code/projects/cudaML/tests/test_array.cu"
-},
-{
-  "directory": "/home/parxed/code/projects/cudaML/build",
   "command": "/usr/bin/nvcc -forward-unknown-to-host-compiler   -g --generate-code=arch=compute_75,code=[compute_75,sm_75] -std=c++11 -x cu -c /home/parxed/code/projects/cudaML/tests/test_mems.cu -o CMakeFiles/test_mems.dir/tests/test_mems.cu.o",
   "file": "/home/parxed/code/projects/cudaML/tests/test_mems.cu"
 },
@@ -16,13 +11,23 @@
 },
 {
   "directory": "/home/parxed/code/projects/cudaML/build",
+  "command": "/usr/bin/nvcc -forward-unknown-to-host-compiler   -g --generate-code=arch=compute_75,code=[compute_75,sm_75] -std=c++11 -x cu -c /home/parxed/code/projects/cudaML/tests/math/test_auto.cu -o CMakeFiles/test_auto.dir/tests/math/test_auto.cu.o",
+  "file": "/home/parxed/code/projects/cudaML/tests/math/test_auto.cu"
+},
+{
+  "directory": "/home/parxed/code/projects/cudaML/build",
+  "command": "/usr/bin/nvcc -forward-unknown-to-host-compiler   -g --generate-code=arch=compute_75,code=[compute_75,sm_75] -std=c++11 -x cu -c /home/parxed/code/projects/cudaML/tests/math/test_sum.cu -o CMakeFiles/test_sum.dir/tests/math/test_sum.cu.o",
+  "file": "/home/parxed/code/projects/cudaML/tests/math/test_sum.cu"
+},
+{
+  "directory": "/home/parxed/code/projects/cudaML/build",
   "command": "/usr/bin/nvcc -forward-unknown-to-host-compiler   -g --generate-code=arch=compute_75,code=[compute_75,sm_75] -std=c++11 -x cu -c /home/parxed/code/projects/cudaML/tests/math/test_vec_add.cu -o CMakeFiles/test_vec_add.dir/tests/math/test_vec_add.cu.o",
   "file": "/home/parxed/code/projects/cudaML/tests/math/test_vec_add.cu"
 },
 {
   "directory": "/home/parxed/code/projects/cudaML/build",
-  "command": "/usr/bin/nvcc -forward-unknown-to-host-compiler   -g --generate-code=arch=compute_75,code=[compute_75,sm_75] -std=c++11 -x cu -c /home/parxed/code/projects/cudaML/tests/math/test_mat_add.cu -o CMakeFiles/test_mat_add.dir/tests/math/test_mat_add.cu.o",
-  "file": "/home/parxed/code/projects/cudaML/tests/math/test_mat_add.cu"
+  "command": "/usr/bin/nvcc -forward-unknown-to-host-compiler   -g --generate-code=arch=compute_75,code=[compute_75,sm_75] -std=c++11 -x cu -c /home/parxed/code/projects/cudaML/tests/math/test_add.cu -o CMakeFiles/test_add.dir/tests/math/test_add.cu.o",
+  "file": "/home/parxed/code/projects/cudaML/tests/math/test_add.cu"
 },
 {
   "directory": "/home/parxed/code/projects/cudaML/build",

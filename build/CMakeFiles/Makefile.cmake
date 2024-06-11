@@ -52,11 +52,12 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/test_array.dir/DependInfo.cmake"
   "CMakeFiles/test_mems.dir/DependInfo.cmake"
   "CMakeFiles/test_stream.dir/DependInfo.cmake"
+  "CMakeFiles/test_auto.dir/DependInfo.cmake"
+  "CMakeFiles/test_sum.dir/DependInfo.cmake"
   "CMakeFiles/test_vec_add.dir/DependInfo.cmake"
-  "CMakeFiles/test_mat_add.dir/DependInfo.cmake"
+  "CMakeFiles/test_add.dir/DependInfo.cmake"
   "CMakeFiles/test_mat_mul.dir/DependInfo.cmake"
   "CMakeFiles/test_linear.dir/DependInfo.cmake"
   "CMakeFiles/mlp.dir/DependInfo.cmake"

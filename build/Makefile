@@ -117,19 +117,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named test_array
-
-# Build rule for target.
-test_array: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_array
-.PHONY : test_array
-
-# fast build rule for target.
-test_array/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_array.dir/build.make CMakeFiles/test_array.dir/build
-.PHONY : test_array/fast
-
-#=============================================================================
 # Target rules for targets named test_mems
 
 # Build rule for target.
@@ -156,6 +143,32 @@ test_stream/fast:
 .PHONY : test_stream/fast
 
 #=============================================================================
+# Target rules for targets named test_auto
+
+# Build rule for target.
+test_auto: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_auto
+.PHONY : test_auto
+
+# fast build rule for target.
+test_auto/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_auto.dir/build.make CMakeFiles/test_auto.dir/build
+.PHONY : test_auto/fast
+
+#=============================================================================
+# Target rules for targets named test_sum
+
+# Build rule for target.
+test_sum: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_sum
+.PHONY : test_sum
+
+# fast build rule for target.
+test_sum/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_sum.dir/build.make CMakeFiles/test_sum.dir/build
+.PHONY : test_sum/fast
+
+#=============================================================================
 # Target rules for targets named test_vec_add
 
 # Build rule for target.
@@ -169,17 +182,17 @@ test_vec_add/fast:
 .PHONY : test_vec_add/fast
 
 #=============================================================================
-# Target rules for targets named test_mat_add
+# Target rules for targets named test_add
 
 # Build rule for target.
-test_mat_add: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_mat_add
-.PHONY : test_mat_add
+test_add: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_add
+.PHONY : test_add
 
 # fast build rule for target.
-test_mat_add/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_mat_add.dir/build.make CMakeFiles/test_mat_add.dir/build
-.PHONY : test_mat_add/fast
+test_add/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_add.dir/build.make CMakeFiles/test_add.dir/build
+.PHONY : test_add/fast
 
 #=============================================================================
 # Target rules for targets named test_mat_mul
@@ -244,6 +257,54 @@ src/mlp.cu.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mlp.dir/build.make CMakeFiles/mlp.dir/src/mlp.cu.s
 .PHONY : src/mlp.cu.s
 
+tests/math/test_add.o: tests/math/test_add.cu.o
+.PHONY : tests/math/test_add.o
+
+# target to build an object file
+tests/math/test_add.cu.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_add.dir/build.make CMakeFiles/test_add.dir/tests/math/test_add.cu.o
+.PHONY : tests/math/test_add.cu.o
+
+tests/math/test_add.i: tests/math/test_add.cu.i
+.PHONY : tests/math/test_add.i
+
+# target to preprocess a source file
+tests/math/test_add.cu.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_add.dir/build.make CMakeFiles/test_add.dir/tests/math/test_add.cu.i
+.PHONY : tests/math/test_add.cu.i
+
+tests/math/test_add.s: tests/math/test_add.cu.s
+.PHONY : tests/math/test_add.s
+
+# target to generate assembly for a file
+tests/math/test_add.cu.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_add.dir/build.make CMakeFiles/test_add.dir/tests/math/test_add.cu.s
+.PHONY : tests/math/test_add.cu.s
+
+tests/math/test_auto.o: tests/math/test_auto.cu.o
+.PHONY : tests/math/test_auto.o
+
+# target to build an object file
+tests/math/test_auto.cu.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_auto.dir/build.make CMakeFiles/test_auto.dir/tests/math/test_auto.cu.o
+.PHONY : tests/math/test_auto.cu.o
+
+tests/math/test_auto.i: tests/math/test_auto.cu.i
+.PHONY : tests/math/test_auto.i
+
+# target to preprocess a source file
+tests/math/test_auto.cu.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_auto.dir/build.make CMakeFiles/test_auto.dir/tests/math/test_auto.cu.i
+.PHONY : tests/math/test_auto.cu.i
+
+tests/math/test_auto.s: tests/math/test_auto.cu.s
+.PHONY : tests/math/test_auto.s
+
+# target to generate assembly for a file
+tests/math/test_auto.cu.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_auto.dir/build.make CMakeFiles/test_auto.dir/tests/math/test_auto.cu.s
+.PHONY : tests/math/test_auto.cu.s
+
 tests/math/test_linear.o: tests/math/test_linear.cu.o
 .PHONY : tests/math/test_linear.o
 
@@ -267,30 +328,6 @@ tests/math/test_linear.s: tests/math/test_linear.cu.s
 tests/math/test_linear.cu.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_linear.dir/build.make CMakeFiles/test_linear.dir/tests/math/test_linear.cu.s
 .PHONY : tests/math/test_linear.cu.s
-
-tests/math/test_mat_add.o: tests/math/test_mat_add.cu.o
-.PHONY : tests/math/test_mat_add.o
-
-# target to build an object file
-tests/math/test_mat_add.cu.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_mat_add.dir/build.make CMakeFiles/test_mat_add.dir/tests/math/test_mat_add.cu.o
-.PHONY : tests/math/test_mat_add.cu.o
-
-tests/math/test_mat_add.i: tests/math/test_mat_add.cu.i
-.PHONY : tests/math/test_mat_add.i
-
-# target to preprocess a source file
-tests/math/test_mat_add.cu.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_mat_add.dir/build.make CMakeFiles/test_mat_add.dir/tests/math/test_mat_add.cu.i
-.PHONY : tests/math/test_mat_add.cu.i
-
-tests/math/test_mat_add.s: tests/math/test_mat_add.cu.s
-.PHONY : tests/math/test_mat_add.s
-
-# target to generate assembly for a file
-tests/math/test_mat_add.cu.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_mat_add.dir/build.make CMakeFiles/test_mat_add.dir/tests/math/test_mat_add.cu.s
-.PHONY : tests/math/test_mat_add.cu.s
 
 tests/math/test_mat_mul.o: tests/math/test_mat_mul.cu.o
 .PHONY : tests/math/test_mat_mul.o
@@ -316,6 +353,30 @@ tests/math/test_mat_mul.cu.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_mat_mul.dir/build.make CMakeFiles/test_mat_mul.dir/tests/math/test_mat_mul.cu.s
 .PHONY : tests/math/test_mat_mul.cu.s
 
+tests/math/test_sum.o: tests/math/test_sum.cu.o
+.PHONY : tests/math/test_sum.o
+
+# target to build an object file
+tests/math/test_sum.cu.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_sum.dir/build.make CMakeFiles/test_sum.dir/tests/math/test_sum.cu.o
+.PHONY : tests/math/test_sum.cu.o
+
+tests/math/test_sum.i: tests/math/test_sum.cu.i
+.PHONY : tests/math/test_sum.i
+
+# target to preprocess a source file
+tests/math/test_sum.cu.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_sum.dir/build.make CMakeFiles/test_sum.dir/tests/math/test_sum.cu.i
+.PHONY : tests/math/test_sum.cu.i
+
+tests/math/test_sum.s: tests/math/test_sum.cu.s
+.PHONY : tests/math/test_sum.s
+
+# target to generate assembly for a file
+tests/math/test_sum.cu.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_sum.dir/build.make CMakeFiles/test_sum.dir/tests/math/test_sum.cu.s
+.PHONY : tests/math/test_sum.cu.s
+
 tests/math/test_vec_add.o: tests/math/test_vec_add.cu.o
 .PHONY : tests/math/test_vec_add.o
 
@@ -339,30 +400,6 @@ tests/math/test_vec_add.s: tests/math/test_vec_add.cu.s
 tests/math/test_vec_add.cu.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_vec_add.dir/build.make CMakeFiles/test_vec_add.dir/tests/math/test_vec_add.cu.s
 .PHONY : tests/math/test_vec_add.cu.s
-
-tests/test_array.o: tests/test_array.cu.o
-.PHONY : tests/test_array.o
-
-# target to build an object file
-tests/test_array.cu.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_array.dir/build.make CMakeFiles/test_array.dir/tests/test_array.cu.o
-.PHONY : tests/test_array.cu.o
-
-tests/test_array.i: tests/test_array.cu.i
-.PHONY : tests/test_array.i
-
-# target to preprocess a source file
-tests/test_array.cu.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_array.dir/build.make CMakeFiles/test_array.dir/tests/test_array.cu.i
-.PHONY : tests/test_array.cu.i
-
-tests/test_array.s: tests/test_array.cu.s
-.PHONY : tests/test_array.s
-
-# target to generate assembly for a file
-tests/test_array.cu.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_array.dir/build.make CMakeFiles/test_array.dir/tests/test_array.cu.s
-.PHONY : tests/test_array.cu.s
 
 tests/test_mems.o: tests/test_mems.cu.o
 .PHONY : tests/test_mems.o
@@ -421,31 +458,35 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... mlp"
-	@echo "... test_array"
+	@echo "... test_add"
+	@echo "... test_auto"
 	@echo "... test_linear"
-	@echo "... test_mat_add"
 	@echo "... test_mat_mul"
 	@echo "... test_mems"
 	@echo "... test_stream"
+	@echo "... test_sum"
 	@echo "... test_vec_add"
 	@echo "... src/mlp.o"
 	@echo "... src/mlp.i"
 	@echo "... src/mlp.s"
+	@echo "... tests/math/test_add.o"
+	@echo "... tests/math/test_add.i"
+	@echo "... tests/math/test_add.s"
+	@echo "... tests/math/test_auto.o"
+	@echo "... tests/math/test_auto.i"
+	@echo "... tests/math/test_auto.s"
 	@echo "... tests/math/test_linear.o"
 	@echo "... tests/math/test_linear.i"
 	@echo "... tests/math/test_linear.s"
-	@echo "... tests/math/test_mat_add.o"
-	@echo "... tests/math/test_mat_add.i"
-	@echo "... tests/math/test_mat_add.s"
 	@echo "... tests/math/test_mat_mul.o"
 	@echo "... tests/math/test_mat_mul.i"
 	@echo "... tests/math/test_mat_mul.s"
+	@echo "... tests/math/test_sum.o"
+	@echo "... tests/math/test_sum.i"
+	@echo "... tests/math/test_sum.s"
 	@echo "... tests/math/test_vec_add.o"
 	@echo "... tests/math/test_vec_add.i"
 	@echo "... tests/math/test_vec_add.s"
-	@echo "... tests/test_array.o"
-	@echo "... tests/test_array.i"
-	@echo "... tests/test_array.s"
 	@echo "... tests/test_mems.o"
 	@echo "... tests/test_mems.i"
 	@echo "... tests/test_mems.s"

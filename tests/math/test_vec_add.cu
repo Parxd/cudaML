@@ -29,7 +29,7 @@ int main(int argc, char** argv) {
     cudaMemcpy(c, d_c, byte_size, cudaMemcpyDeviceToHost);
 
     for (int i = 0; i < N; ++i) {
-        printf("%d\n", c[i]);
+        printf("%f\n", c[i]);
     }
 
     free(a);

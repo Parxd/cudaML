@@ -15,20 +15,20 @@ set(CMAKE_CUDA_STANDARD_REQUIRED TRUE)
 set(CMAKE_COMPILE_WARNING_AS_ERROR ON)
 
 set(MAIN_SOURCES
-    src/array.cu
 
     src/math/vec_add.cu
-    src/math/mat_add.cu
+    src/math/add.cu
     src/math/mat_mul.cu
     )
 
 set(TEST_SOURCES
-    tests/test_array.cu
     tests/test_mems.cu
     tests/test_stream.cu
 
+    tests/math/test_auto.cu
+    tests/math/test_sum.cu
     tests/math/test_vec_add.cu
-    tests/math/test_mat_add.cu
+    tests/math/test_add.cu
     tests/math/test_mat_mul.cu
     tests/math/test_linear.cu
     )

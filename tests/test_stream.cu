@@ -5,6 +5,7 @@ const int SIZE = 10000;
 const int STREAMS = 3;
 
 void test0() {
+    // synchronous HtoD memory
     float* host_ptrs_array[STREAMS] = {new float[SIZE], new float[SIZE], new float[SIZE]};
     float* dev_ptrs_arr[STREAMS];
 
@@ -19,12 +20,14 @@ void test0() {
 }
 
 void test1() {
+    // asynchronous HtoD memcpy
     cudaStream_t stream_array[3];
 
     float* host_ptrs_arr[STREAMS];
     float* dev_ptrs_arr[STREAMS];
 
     for (int i = 0; i < STREAMS; ++i) {
+        cudaMallocHost((void**)&host_ptrs_arr[i], sizeof(float) * SIZE);
         cudaStreamCreate(&stream_array[i]);
     }
     for (int i = 0; i < STREAMS; ++i) {
@@ -46,4 +49,8 @@ int main(int argc, char** argv) {
         test1();
     }
     printf("%s\n", argv[1]);
+    // ideally, ./test_stream 1 should execute faster than ./test_stream 0
+
+    // $ nsys profile ./test_stream 0
+    // $ nsys profile ./test_stream 1
 }

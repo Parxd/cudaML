@@ -1,5 +1,5 @@
 #include "../../src/utils.h"
-#include "../../src/math/mat_add.cu"
+#include "../../src/math/add.cu"
 
 void test1() {
     int N = 2;
@@ -103,7 +103,7 @@ void test_cublas1() {
     cudaMemcpy(d_a, a, byte_size, cudaMemcpyHostToDevice);
     cudaMemcpy(d_b, b, byte_size, cudaMemcpyHostToDevice);
 
-    matadd_cublas(d_c, d_a, d_b, rows, cols);
+    add_cublas(d_c, d_a, d_b, rows, cols);
     
     cudaMemcpy(c, d_c, byte_size, cudaMemcpyDeviceToHost);
 
@@ -141,7 +141,7 @@ void test_cublas2() {
     cudaMemcpy(d_a, a, byte_size, cudaMemcpyHostToDevice);
     cudaMemcpy(d_b, b, byte_size, cudaMemcpyHostToDevice);
 
-    matadd_cublas(d_a, d_a, d_b, rows, cols);
+    add_cublas(d_a, d_a, d_b, rows, cols);
     // CUBLAS_CHECK(cublasSgeam(
     //     cublas_handle,
     //     CUBLAS_OP_N, CUBLAS_OP_N,

@@ -5,6 +5,8 @@
 *.cubin
 *.fatbin
 
+cmake-build-debug/
+build/
 CMakeLists.txt.user
 CMakeCache.txt
 CMakeFiles

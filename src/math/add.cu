@@ -1,5 +1,5 @@
-#ifndef MAT_ADD
-#define MAT_ADD
+#ifndef ADD
+#define ADD
 
 #include <cuda_runtime.h>
 #include <cublas_v2.h>
@@ -22,7 +22,7 @@ __global__ void matadd_2(float* a, float* b, float* c) {
     c[global_idx] = a[global_idx] + b[global_idx];
 }
 
-void matadd_cublas(float* out, float* a, float* b, int rows, int cols) {
+void add_cublas(float* out, float* a, float* b, int rows, int cols) {
     CUBLAS_CHECK(cublasSgeam(
         cublas_handle,
         CUBLAS_OP_N, CUBLAS_OP_N,
