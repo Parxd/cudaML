@@ -6,7 +6,7 @@
 #include "../utils.h"
 
 void sum_cublas(float* sum, float* x, int size) {
-    cublasSasum(cublas_handle, size, x, 1, sum);
+    CUBLAS_CHECK(cublasSasum(cublas_handle, size, x, 1, sum));
 }
 
 #endif

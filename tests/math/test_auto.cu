@@ -3,9 +3,11 @@
 #include "../../src/utils.h"
 #include "../../src/math/add.cu"
 #include "../../src/math/sum.cu"
+#include <cutlass/cutlass.h>
 
 int main(int argc, char** argv) { 
-    CUBLAS_CHECK(cublasCreate(&cublas_handle));  // don't declare cublas_handle; create the static instance from utils.h
+    CUBLAS_CHECK(cublasCreate_v2(&cublas_handle));  // don't declare cublas_handle; create the static instance from utils.h
+    // cublasSetPointerMode_v2(cublas_handle, CUBLAS_POINTER_MODE_DEVICE); 
     int size = 10;
     int streams = 2;
     cudaStream_t stream_arr[streams];
@@ -25,7 +27,7 @@ int main(int argc, char** argv) {
     cudaMallocAsync((void**)&d_a, sizeof(float) * size, stream_arr[0]);
     cudaMallocAsync((void**)&d_b, sizeof(float) * size, stream_arr[0]);
     cudaMallocAsync((void**)&d_c, sizeof(float) * size, stream_arr[1]);
-    cudaMallocAsync((void**)&d_d, sizeof(float), stream_arr[1]);
+    // cudaMallocAsync((void**)&d_d, sizeof(float), stream_arr[1]);
     cudaMemcpyAsync(d_a, a, sizeof(float) * size, cudaMemcpyHostToDevice, stream_arr[0]);
     cudaMemcpyAsync(d_b, b, sizeof(float) * size, cudaMemcpyHostToDevice, stream_arr[0]);
 
@@ -33,11 +35,11 @@ int main(int argc, char** argv) {
 
     // "forward" pass
     add_cublas(d_c, d_a, d_b, 1, size);
-    sum_cublas(d_d, d_c, size);
+    sum_cublas(d, d_c, size);
     
-    cudaMemcpy(d, d_d, sizeof(float), cudaMemcpyDeviceToHost);
+    // cudaMemcpy(d, d_d, sizeof(float), cudaMemcpyDeviceToHost);
     std::cout << *d << std::endl;  // 110 for size=10
-
+    
     cudaFreeHost(a);
     cudaFreeHost(b);
     cudaFreeHost(c);
@@ -45,7 +47,7 @@ int main(int argc, char** argv) {
     cudaFree(d_a);
     cudaFree(d_b);
     cudaFree(d_c);
-    cudaFree(d_d);
-    CUBLAS_CHECK(cublasDestroy(cublas_handle));
+    // cudaFree(d_d);
+    CUBLAS_CHECK(cublasDestroy_v2(cublas_handle));
     return 0;
 }

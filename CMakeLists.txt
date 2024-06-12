@@ -5,6 +5,11 @@ if(NOT DEFINED CMAKE_CUDA_ARCHITECTURES)
 endif()
 
 project(cuda LANGUAGES CXX CUDA)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
 include(CheckLanguage)
 enable_language(CUDA)
 
@@ -35,9 +40,15 @@ set(TEST_SOURCES
 
 foreach(TEST_SOURCE ${TEST_SOURCES})
   get_filename_component(TEST_NAME ${TEST_SOURCE} NAME_WE)
+  include_directories(CUTLASS_INCLUDE)
   add_executable(${TEST_NAME} ${TEST_SOURCE})
   target_link_libraries(${TEST_NAME} cublas)
 endforeach()
 
 add_executable(mlp src/mlp.cu)
 target_link_libraries(mlp cublas)
+
+add_executable(cutlass_test src/cutlass_test.cu)
+include_directories(../cutlass-3.4.1/include)
+target_compile_features(cutlass_test PUBLIC cxx_std_17)
+target_link_libraries(cutlass_test cublas)
