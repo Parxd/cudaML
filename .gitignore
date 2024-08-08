@@ -5,6 +5,11 @@
 *.cubin
 *.fatbin
 
+.cache/
+.idea/
+.vscode/
+third-party/
+
 cmake-build-debug/
 build/
 build/CMakeFiles/

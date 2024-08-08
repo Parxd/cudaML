@@ -1,9 +1,8 @@
 #include <cublas_v2.h>
 #include <cuda_runtime.h>
-#include "../../src/utils.h"
-#include "../../src/math/add.cu"
-#include "../../src/math/sum.cu"
-#include <cutlass/cutlass.h>
+#include "../../include/utils.h"
+#include "../../src/cublas/add.cu"
+#include "../../src/cublas/sum.cu"
 
 int main(int argc, char** argv) { 
     CUBLAS_CHECK(cublasCreate_v2(&cublas_handle));  // don't declare cublas_handle; create the static instance from utils.h

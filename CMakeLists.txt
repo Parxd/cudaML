@@ -1,54 +1,56 @@
-cmake_minimum_required(VERSION 3.2)
+cmake_minimum_required(VERSION 3.20)
 
-if(NOT DEFINED CMAKE_CUDA_ARCHITECTURES)
-  set(CMAKE_CUDA_ARCHITECTURES 75)
-endif()
-
-project(cuda LANGUAGES CXX CUDA)
+project(cudaML LANGUAGES CXX CUDA)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)
+set(CMAKE_CUDA_STANDARD 17)
+set(CMAKE_CUDA_STANDARD_REQUIRED ON)
 
+if(NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/third-party/cutlass/tools/util/include")
+    message(FATAL_ERROR [[
+        CUTLASS library not found in third-partye/cutlass.
+        Please fetch with git submodule update --init --recursive
+        ]])
+endif()
+
+# CUDA
 include(CheckLanguage)
-enable_language(CUDA)
+check_language(CUDA)
+find_package(CUDAToolkit REQUIRED)
+set(CMAKE_CUDA_ARCHITECTURES 86)  # only support architectures present in system, for now
 
-find_package(CUDA 11 REQUIRED)
 
-set(CMAKE_CUDA_STANDARD 11)
-set(CMAKE_CUDA_STANDARD_REQUIRED TRUE)
-set(CMAKE_COMPILE_WARNING_AS_ERROR ON)
+include_directories(${PROJECT_SOURCE_DIR}
+                    ${PROJECT_SOURCE_DIR}/include
+                    ${PROJECT_SOURCE_DIR}/util/include
+                    ${PROJECT_SOURCE_DIR}/third-party/cutlass/include
+                    ${PROJECT_SOURCE_DIR}/third-party/cutlass/tools/util/include
+)
 
-set(MAIN_SOURCES
+# Compiler flags
+if (NOT CMAKE_BUILD_TYPE MATCHES "Release")
+    list(APPEND LLM_CUDA_NVCC_FLAGS -lineinfo)
+    list(APPEND LLM_CUDA_CLANG_FLAGS -gmlt)
+endif()
+# set(CMAKE_CUDA_FLAGS "${CMAKE_CUDA_FLAGS} -v")                         # verbose
+set(CMAKE_CUDA_FLAGS "${CMAKE_CUDA_FLAGS} --compiler-options=-fno-omit-frame-pointer")
+set(CMAKE_CUDA_FLAGS "${CMAKE_CUDA_FLAGS} --expt-relaxed-constexpr")   # CuTe layout.hpp warning
 
-    src/math/vec_add.cu
-    src/math/add.cu
-    src/math/mat_mul.cu
-    )
+message(STATUS "build type: ${CMAKE_BUILD_TYPE}")
+message(STATUS "CUDA compiler: ${CMAKE_CUDA_COMPILER}")
+message(STATUS "Using NVCC flags: ${GEMM_CUDA_NVCC_FLAGS}")
+message(STATUS "cxx compiler id: ${CMAKE_CXX_COMPILER_ID}")
+message(STATUS "cxx compiler version: ${CMAKE_CXX_COMPILER_VERSION}")
 
-set(TEST_SOURCES
-    tests/test_mems.cu
-    tests/test_stream.cu
+# cuBLAS (optional)
+option(ENABLE_CUBLAS "Enable cuBLAS support" OFF)
+if(TARGET CUDA::cublas)
+    message(STATUS "cuBLAS found.")
+    set(ENABLE_CUBLAS ON)
+else()
+    message(STATUS "cuBLAS not found, some code and tests will not be compiled.")
+endif()
 
-    tests/math/test_auto.cu
-    tests/math/test_sum.cu
-    tests/math/test_vec_add.cu
-    tests/math/test_add.cu
-    tests/math/test_mat_mul.cu
-    tests/math/test_linear.cu
-    )
-
-foreach(TEST_SOURCE ${TEST_SOURCES})
-  get_filename_component(TEST_NAME ${TEST_SOURCE} NAME_WE)
-  include_directories(CUTLASS_INCLUDE)
-  add_executable(${TEST_NAME} ${TEST_SOURCE})
-  target_link_libraries(${TEST_NAME} cublas)
-endforeach()
-
-add_executable(mlp src/mlp.cu)
-target_link_libraries(mlp cublas)
-
-add_executable(cutlass_test src/cutlass_test.cu)
-include_directories(../cutlass-3.4.1/include)
-target_compile_features(cutlass_test PUBLIC cxx_std_17)
-target_link_libraries(cutlass_test cublas)
+add_subdirectory(src)
+add_subdirectory(tests)

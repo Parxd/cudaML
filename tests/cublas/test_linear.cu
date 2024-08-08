@@ -1,5 +1,5 @@
-#include "../../src/utils.h"
-#include "../../src/math/linear.cu"
+#include "../../include/utils.h"
+#include "../../src/cublas/linear.cu"
 
 void test_linear1() {
     cublasCreate(&cublas_handle);
@@ -13,7 +13,7 @@ void test_linear1() {
     fill_increment<float>(input, 3);
     fill_zeros<float>(fwd, 5);
 
-    float* d_weight, *d_bias, *d_input,*d_fwd;
+    float* d_weight, *d_bias, *d_input, *d_fwd;
     CUDA_CHECK(cudaMalloc((void**)&d_weight, sizeof(float) * 5 * 3));
     CUDA_CHECK(cudaMalloc((void**)&d_bias, sizeof(float) * 5));
     CUDA_CHECK(cudaMalloc((void**)&d_input, sizeof(float)* 3));

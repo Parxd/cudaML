@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cublas_v2.h>
-#include "../../src/utils.h"
-#include "../../src/math/mat_mul.cu"
+#include "../../include/utils.h"
+#include "../../src/cublas/mat_mul.cu"
 
 void test_cuda1() {
 

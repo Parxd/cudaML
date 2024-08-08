@@ -3,7 +3,7 @@
 
 #include <cuda_runtime.h>
 #include <cublas_v2.h>
-#include "../utils.h"
+#include "../../include/utils.h"
 
 __global__ void matmul_cuda_1(float* a, float* b, float* c) {
     

@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <iomanip>
+#include <random>
+#include <chrono>
 #include <cublas_v2.h>
 
 #define MAX_THREADS 32
@@ -32,6 +34,19 @@ void fill_increment(T* arr, int N) {
     for (int i = 0; i < N; ++i) {
         arr[i] = num;
         ++num;
+    }
+}
+
+template <typename T>
+void fill_random_uniform(T* arr, int N, double min=-1, double max=1) {
+    std::mt19937_64 rng;
+    std::uniform_real_distribution<T> distribution(min, max);
+    uint64_t time_seed = std::chrono::high_resolution_clock::now().time_since_epoch().count();
+    std::seed_seq ss{uint32_t(time_seed & 0xffffffff), uint32_t(time_seed>>32)};
+    rng.seed(ss);
+
+    for (int i = 0; i < N; ++i) {
+        arr[i] = distribution(rng);
     }
 }
 
