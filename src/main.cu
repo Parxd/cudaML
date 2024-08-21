@@ -7,17 +7,6 @@
 
 using namespace cutlass;
 
-template <typename T>
-bool is_device_pointer(T* ptr) {
-    cudaPointerAttributes attributes;
-    cudaError_t error = cudaPointerGetAttributes(&attributes, ptr);
-    if (error != cudaSuccess) {
-        cudaGetLastError();
-        return false;
-    }
-    return (attributes.type == cudaMemoryTypeDevice);
-}
-
 template <typename TensorType>
 bool is_device_tensor(const TensorType& tensor) {
     return is_device_pointer(tensor.data());
@@ -47,13 +36,27 @@ int main(int argc, char* argv[]) {
     // // cute::axpby(1, a, 1, b);
     // cute::print_tensor(b);
 
-    // auto tensor1 = TensorImpl<dtype>();
-    auto tensor2 = TensorImpl<dtype>(2, 3);  // 2 x 3
-    // auto alloc1 = DeviceAlloc<dtype>(10);
-    // auto alloc2 = alloc1;
-    // std::cout << alloc1.get() << '\n';
-    // std::cout << alloc2.get() << '\n';
+    auto tensor = TensorImpl<dtype>(2, 3);  // 2 x 3
+    tensor.print_tensor(stream);
 
+    auto size = 50;
+    auto alloc_ptr = std::make_shared<DeviceAlloc<dtype>>(size);
+    dtype src[size];
+    for (int i = 0; i < size; ++i) {
+        src[i] = (dtype)1.5;
+    }
+    alloc_ptr.get()->cpy_to_buffer(src, size, stream);
+    dtype tmp[alloc_ptr.get()->size()];
+    alloc_ptr.get()->cpy_from_buffer(tmp, stream);
+    // for (int i = 0; i < size; ++i) {
+        // std::cout << tmp[i] << " ";
+    // }
+    auto layout = Layout<Shape<int, int>, tuple<int, int>>(
+        Shape<int, int>(5, 10),
+        Stride<int, int>{10, Int<1>{}}
+    );
+    auto test = Tensor<ViewEngine<dtype*>, Layout<Shape<int, int>, tuple<int, int>>>((float*)tmp, layout);
+    cute::print_tensor(test);
     // delete[] a_ptr;
     // delete[] b_ptr;
     // delete[] c_ptr;

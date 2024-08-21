@@ -84,7 +84,8 @@
         "unordered_set": "cpp",
         "valarray": "cpp",
         "variant": "cpp",
-        "__tree": "cpp"
+        "__tree": "cpp",
+        "__config": "cpp"
     },
     "cmake.configureOnOpen": true
 }

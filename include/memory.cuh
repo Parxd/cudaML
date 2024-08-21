@@ -29,6 +29,8 @@ class DeviceAlloc {
                 cutlass::device_memory::free<T>(m_buffer);
                 // CUDA_CHECK(cudaFree(m_buffer));  // suppress compiler warning abt macro
             }
+            // cudaDeviceSynchronize();  // TODO: remove this later
+            std::cout << m_count << " elements freed from device memory." << std::endl;
         }
         /**
          * Op. assignment needs to be defined for TensorImpl
@@ -40,14 +42,13 @@ class DeviceAlloc {
          * --> shallow copy + use (something like) std::shared_ptr approach?
          */
         DeviceAlloc& operator=(const DeviceAlloc& other) {
-            // std::swap(m_buffer, other.m_buffer);
-            m_buffer = other.m_buffer;
-            other.m_buffer = nullptr;
-            m_count = other.m_count;
-            return *this;
+
         }
-        T* get() const {
+        auto get() const {
             return m_buffer;
+        }
+        auto size() const {
+            return m_count;
         }
         void cpy_to_buffer(T* src, size_t count, cudaStream_t stream) {
             if (count != m_count) {

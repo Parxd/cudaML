@@ -38,6 +38,17 @@ void fill_increment(T* arr, int N) {
 }
 
 template <typename T>
+bool is_device_pointer(T* ptr) {
+    cudaPointerAttributes attributes;
+    cudaError_t error = cudaPointerGetAttributes(&attributes, ptr);
+    if (error != cudaSuccess) {
+        cudaGetLastError();
+        return false;
+    }
+    return (attributes.type == cudaMemoryTypeDevice);
+}
+
+template <typename T>
 void fill_random_uniform(T* arr, int N, double min=-1, double max=1) {
     std::mt19937_64 rng;
     std::uniform_real_distribution<T> distribution(min, max);
