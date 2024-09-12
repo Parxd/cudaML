@@ -1,3 +1,6 @@
+#ifndef MEMORY_CUH
+#define MEMORY_CUH
+
 #include <cutlass/util/device_memory.h>
 #include <cutlass/util/exceptions.h>
 #include <cuda_runtime.h>
@@ -63,3 +66,5 @@ class DeviceAlloc {
         T* m_buffer;
         size_t m_count;
 };
+
+#endif
